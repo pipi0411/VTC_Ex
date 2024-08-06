@@ -8,6 +8,6 @@ int main(){
     printf("Nhập y: \n");
     scanf("%f", &y);
     ex = x * x * x + 3 * x * x * y + 3 * x * y * y + y * y * y;
-    printf("ex = %f", ex);
+    printf("ex = %.2f", ex);
     return 0;
 }
