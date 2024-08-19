@@ -11,7 +11,16 @@ srand(time(NULL));
     {
         arr[i] = rand()%1000;
     }
+    printf("Mảng đầu tiên:\n");
+    for (int i = 0; i < 100; i++)
+    {
 
+        printf("%4d",arr[i]);
+        if((i+1)%10==0) {
+            printf("\n");
+        }
+
+    }
      for (int i = 0; i < 100; i++)
     {
         for (int j = 0; j < 100 - i - 1; j++)
@@ -25,7 +34,7 @@ srand(time(NULL));
         }
     }
 
- printf("Display array:\n");
+    printf("Mảng sắp xếp tăng dần:\n");
     for (int i = 0; i < 100; i++)
     {
 
