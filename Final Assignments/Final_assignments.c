@@ -11,11 +11,40 @@ typedef struct {
 } Account;
 
 int validateAccountNumber(char *accountNumber){
-    return strlen(accountNumber) == 14;
+    int valid = 1;
+    valid = strlen(accountNumber) == 14;
+    if(!valid){
+        return 0;
+    }
+
+    for (int i = 0; i < strlen(accountNumber); i++){
+        if (accountNumber[i] < '0' || accountNumber[i] > '9'){
+            valid = 0;
+            break;
+        }
+    }
+
+    return valid;
 }
 
 int validatePinCode(char *pinCode){
-    return strlen(pinCode) == 6;
+    int valid = 0;
+    do{
+    valid = strlen(pinCode) == 6;
+    if(!valid){
+        continue;
+    }
+    for (int i = 0; i < strlen(pinCode); i++){
+        if (pinCode[i] < '0' || pinCode[i] > '9'){
+            valid = 0;
+            break;
+        }
+    }
+
+    }while(!valid);
+    
+
+    return valid;
 }
 
 int validateAccountBalance(float accountBalance){
