@@ -1,127 +1,121 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
-#define File_Name "C:/Users/pipi/Documents/File Bank/account-number.dat"
+#include <stdlib.h>
+#include <ctype.h>
 
-typedef struct {
-    char accountName[100];
-    char accountNumber[15];
-    char pinCode[7];
-    float accountBalance;
-} Account;
-
-int validateAccountNumber(char *accountNumber){
-    int valid = 1;
-    valid = strlen(accountNumber) == 14;
-    if(!valid){
-        return 0;
-    }
-
-    for (int i = 0; i < strlen(accountNumber); i++){
-        if (accountNumber[i] < '0' || accountNumber[i] > '9'){
-            valid = 0;
-            break;
-        }
-    }
-
-    return valid;
+#define MAX_NUM 14
+#define MAX_PIN 6
+int isValidAccountNumber(char *accountNumber){
+    return strlen(accountNumber) == 14 && strspn(accountNumber,"0123456789") ==14;
+}
+int isValidPinCode(char *pinCode){
+    return strlen(pinCode) == 6 && strspn(pinCode,"0123456789") == 6;
+}
+void deleInput(int ch)
+{
+    while((ch = getchar()) != '\n' && ch != EOF);
 }
 
-int validatePinCode(char *pinCode){
-    int valid = 0;
-    do{
-    valid = strlen(pinCode) == 6;
-    if(!valid){
-        continue;
-    }
-    for (int i = 0; i < strlen(pinCode); i++){
-        if (pinCode[i] < '0' || pinCode[i] > '9'){
-            valid = 0;
-            break;
+int isValidAccountName(char *accountName)
+{
+    for (int i = 0; i < strlen(accountName); i++) {
+        if (!isalpha(accountName[i]) && !isspace(accountName[i])) {
+            return 0;
         }
     }
-
-    }while(!valid);
-    
-
-    return valid;
+    return 1;
 }
 
-int validateAccountBalance(float accountBalance){
-    return accountBalance >= 50000.0;
-}
-
-void intputAccountInfo(Account *account){
-    printf("Enter account name: ");
-    fgets(account->accountName, 100, stdin);
-    account->accountName[strcspn(account->accountName, "\n")] = 0;
-
-    do{
-        printf("Enter account number (14 digits): ");
-        fgets(account->accountNumber, 15, stdin);
-        account->accountNumber[strcspn(account->accountNumber, "\n")] = 0;
-        if (!validateAccountNumber(account->accountNumber)){
-            printf("Invalid account number\n");
-        }
-    }while(!validateAccountNumber(account->accountNumber));
-
-    getchar();
-
-    do {
-        printf("Enter pin code (6 digits): ");
-        fgets(account->pinCode, 7, stdin);
-        account->pinCode[strcspn(account->pinCode, "\n")] = 0;
-        if (!validatePinCode(account->pinCode)){
-            printf("Invalid pin code\n");
-        }
-    }while(!validatePinCode(account->pinCode));
-
-    do {
-        printf("Enter account balance (>= 50000): ");
-        scanf("%f", &account->accountBalance);
-        if (!validateAccountBalance(account->accountBalance)){
-            printf("Invalid account balance\n");
-        }
-    }while(!validateAccountBalance(account->accountBalance));
-
-    printf("Create ATM successfully\n");
-    printf("Do you want to create another ATM account (Y/N)? ");
-    char choice;
-    scanf(" %c", &choice);
-    if (choice == 'Y' || choice == 'y'){
-        getchar();
-        // intputAccountInfo(account);
-    }
-    else{
-        printf("Goodbye\n");
-    }
-}
-
-void saveAccountInfo(Account *account){
-    FILE *file = fopen(File_Name, "a");
-    if (file == NULL){
-        printf("Cannot open file\n");
+void saveToFile(char *accountName, char *accountNumber, char *pinCode, long int accBalance)
+{
+    FILE *file = fopen("account-number.dat", "a");
+    if (file == NULL)
+    {
+        printf("Cannot open file!\n");
         return;
     }
-    fprintf(file, "Tên tài khoản: %s\n", account->accountName);
-    fprintf(file, "Số tài khoản: %s\n", account->accountNumber);
-    fprintf(file, "Mã PIN: %s\n", account->pinCode);
-    fprintf(file, "Số dư tài khoản: %.2f VND\n", account->accountBalance);
+    fprintf(file, "Ten tai khoan: %s\n", accountName);
+    fprintf(file, "So tai khoan: %s\n", accountNumber);
+    fprintf(file, "Ma pin: %s\n", pinCode);
+    fprintf(file, "So du: %ld\n", accBalance);
     fclose(file);
-    printf("Đã lưu thông tin tài khoản vào tệp %s\n", File_Name);
+    printf("Đa luu thong tin tai khoan vao file account-number.dat\n");
 }
 
 
-int main(){
-    Account account;
-    printf("============================\n");
-    printf("VTC ACADEMY BANK\n");
-    printf("============================\n");
-    printf("Create ATM account\n");
-    printf("----------------------------\n");
-    intputAccountInfo(&account);
-    printf("----------------------------\n");
-    saveAccountInfo(&account);
-    return 0;
-    
+int main()
+{
+    char accountName[50];
+    char accountNumber[MAX_NUM+2];
+    char pinCode[MAX_PIN+2];
+    long int accBalance;
+    char saveChoice;
+
+    printf("==================================\n");
+    printf("\tVTC Academy Bank\n");
+    printf("==================================\n");
+    printf("\tCreate ATM Cards\n");
+    printf("----------------------------------\n");
+    printf("Input Account Name: ");
+    do {
+        fgets(accountName, sizeof(accountName), stdin);
+        accountName[strcspn(accountName, "\n")] = '\0';
+        if (!isValidAccountName(accountName)) {
+            printf("Invalid account name, re-enter: ");
+        }
+    } while (!isValidAccountName(accountName));
+    printf("Input Account No(14 digital): ");
+do
+{
+    fgets(accountNumber, sizeof(accountNumber), stdin);
+    if (strlen(accountNumber) > MAX_NUM && accountNumber[MAX_NUM] != '\n')
+    {
+        deleInput(0);
+        printf("Invalid account number, re-enter: ");
+        continue;
+    } 
+    accountNumber[strcspn(accountNumber, "\n")] = '\0';
+    if (!isValidAccountNumber(accountNumber))
+    {
+        printf("Invalid account number, re-enter: ");
+    }
+} while (!isValidAccountNumber(accountNumber));
+
+printf("Input Code(6 number): ");
+do
+{
+    fgets(pinCode, sizeof(pinCode), stdin);
+    if (strlen(pinCode) > MAX_PIN && pinCode[MAX_PIN] != '\n')
+    {
+        deleInput(0);
+        printf("Invalid Pin code, re-enter:");
+        continue;
+    }
+    pinCode[strcspn(pinCode, "\n")] = '\0';
+    if (!isValidPinCode(pinCode))
+    {
+        printf("Invalid Pin code, re-enter:");
+    }
+} while (!isValidPinCode(pinCode));
+
+do
+{
+    printf("Input balance (>50000): ");
+    scanf("%ld", &accBalance);
+} while (accBalance < 50000);
+
+printf("----------------------------------\n");
+printf("Create ATM successfully\n");
+printf("Do you want to create another ATM account (Y/N)? ");
+deleInput(0);
+saveChoice = getchar();
+if ( saveChoice == 'Y' || saveChoice == 'y')
+  {
+    saveToFile(accountName, accountNumber, pinCode, accBalance);
+  }else
+  {
+    printf("Goodbye\n");
+  }
+  return 0;
+
 }
