@@ -28,7 +28,7 @@ int isValidAccountName(char *accountName)
 
 void saveToFile(char *accountName, char *accountNumber, char *pinCode, long int accBalance)
 {
-    FILE *file = fopen("account-number.dat", "a+");
+    FILE *file = fopen("account-number.dat", "a");
     if (file == NULL)
     {
         printf("Cannot open file!\n");
