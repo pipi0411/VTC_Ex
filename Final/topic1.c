@@ -36,6 +36,27 @@ int isValidAccountName(char *accountName)
     return 1;
 }
 
+int isDuplicateAccount(char *accountNumber){
+    FILE *file = fopen("account-number.dat", "r");
+    if (file == NULL)
+    {
+        return 0;
+    }
+    char line[256];
+    while (fgets(line, sizeof(line), file))
+    {
+        if(strstr(line, "So tai khoan") && strstr(line, accountNumber))
+        {
+            fclose(file);
+            return 1;
+
+        }
+    }
+    fclose(file);
+    return 0;
+}
+
+
 void saveToFile(char *accountName, char *accountNumber, char *pinCode, long int accBalance)
 {
     FILE *file = fopen("account-number.dat", "a");
@@ -66,6 +87,7 @@ void created_ATM()
     printf("==================================\n");
     printf("\tCreate ATM Cards\n");
     printf("----------------------------------\n");
+
     printf("Input Account Name: ");
     do {
         fgets(accountName, sizeof(accountName), stdin);
@@ -74,6 +96,7 @@ void created_ATM()
             printf("Invalid account name, re-enter: ");
         }
     } while (!isValidAccountName(accountName));
+
     printf("Input Account No(14 digital): ");
 do
 {
@@ -88,6 +111,11 @@ do
     if (!isValidAccountNumber(accountNumber))
     {
         printf("Invalid account number, re-enter: ");
+    }
+    if (isDuplicateAccount(accountNumber))
+    {
+        printf("Account number is duplicated, re-enter: ");
+        deleInput(0);
     }
 } while (!isValidAccountNumber(accountNumber));
 
