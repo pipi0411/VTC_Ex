@@ -17,6 +17,12 @@
 int isValidAccountNumber(char *accountNumber){
     return strlen(accountNumber) == 14 && strspn(accountNumber,"0123456789") ==14;
 }
+void toUpperCase(char *str){
+    for (int i = 0; i < strlen(str); i++) {
+        str[i] = toupper(str[i]);
+    }
+}
+
 int isValidPinCode(char *pinCode){
     return strlen(pinCode) == 6 && strspn(pinCode,"0123456789") == 6;
 }
@@ -92,6 +98,7 @@ void created_ATM()
     do {
         fgets(accountName, sizeof(accountName), stdin);
         accountName[strcspn(accountName, "\n")] = '\0';
+        toUpperCase(accountName);
         if (!isValidAccountName(accountName)) {
             printf("Invalid account name, re-enter: ");
         }
