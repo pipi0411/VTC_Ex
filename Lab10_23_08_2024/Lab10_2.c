@@ -8,28 +8,49 @@
 #include <string.h>
 #include <ctype.h>
 
-int main(){
+int main() {
     char str[100];
     printf("Enter a string: ");
     fgets(str, sizeof(str), stdin);
-    str[0] = toupper(str[0]);
-    for(int i = 1; i < strlen(str); i++){
-        str[i] = tolower(str[i]);
-    }
-    for(int i = 0; i < strlen(str); i++){
-        if(str[i] == ' '){
-            if(str[i+1] == ' '){
-                for(int j = i; j < strlen(str); j++){
-                    str[j] = str[j+1];
-                }
-                i--;
-            }
-        }
+
+    if (str[strlen(str) - 1] == '\n') {
+        str[strlen(str) - 1] = '\0';
     }
 
-    if(str[strlen(str)-1] == ' '){
-        str[strlen(str)-1] = '\0';
+    int len = strlen(str);
+    int i = 0;
+    int j = 0;
+
+
+    while (isspace(str[i])) {
+        i++;
     }
+
+    while (i < len) {
+
+        if (j == 0 || (j > 0 && str[j - 1] == ' ')) {
+            str[j] = toupper(str[i]);
+        } else {
+            str[j] = tolower(str[i]);
+        }
+
+        if (isspace(str[i])) {
+            while (isspace(str[i + 1])) {
+                i++;
+            }
+        }
+
+        i++;
+        j++;
+    }
+
+    if (j > 0 && str[j - 1] == ' ') {
+        j--;
+    }
+
+    str[j] = '\0';
+
     printf("The normalized string: %s\n", str);
+
     return 0;
 }

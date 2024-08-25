@@ -2,6 +2,15 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
+#ifdef _WIN32
+      #include <direct.h>
+      #define MKDIR(dir) _mkdir(dir)
+#else
+        #include <sys/stat.h>
+        #include <sys/types.h>
+        #define MKDIR(dir) mkdir(dir, 0777)
+#endif
+
 
 #define MAX_NUM 14
 #define MAX_PIN 6
@@ -11,8 +20,9 @@ int isValidAccountNumber(char *accountNumber){
 int isValidPinCode(char *pinCode){
     return strlen(pinCode) == 6 && strspn(pinCode,"0123456789") == 6;
 }
-void deleInput(int ch)
+void deleInput()
 {
+    int ch;
     while((ch = getchar()) != '\n' && ch != EOF);
 }
 
@@ -43,7 +53,7 @@ void saveToFile(char *accountName, char *accountNumber, char *pinCode, long int 
 }
 
 
-int main()
+void created_ATM()
 {
     char accountName[50];
     char accountNumber[MAX_NUM+2];
@@ -116,6 +126,5 @@ if ( saveChoice == 'Y' || saveChoice == 'y')
   {
     printf("Goodbye\n");
   }
-  return 0;
 
 }
