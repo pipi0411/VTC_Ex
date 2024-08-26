@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-#include "Lab10_2.c"
 
 int main(){
     char str[100];
