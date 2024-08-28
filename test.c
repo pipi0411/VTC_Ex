@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 
-struct Books
-{
-    char isbn[15];
-    char title[50];
-    char author[50];
-    float price;
-};
+// struct Books
+// {
+//     char isbn[15];
+//     char title[50];
+//     char author[50];
+//     float price;
+// };
 
 // int main(){
 //     struct Books book1;
@@ -69,64 +69,78 @@ struct Books
 // }
 
 
-void printBook(struct Books book);
-struct Books getBook();
-void getString(char *str, int length);
-void printLine();
-void printTitle();
+// void printBook(struct Books book);
+// struct Books getBook();
+// void getString(char *str, int length);
+// void printLine();
+// void printTitle();
 
+// int main(){
+//     struct Books books[3] =
+//     {
+//         {"123456789", "The programming", "Nuha Ali", 50000},
+//         {"987654321", "Telecom Billing", "Zara Ali", 150000}
+//     };
+//     int i, count = 3;
+//     printf("Input book 3:\n");
+
+//     printLine();
+//     return 0;
+// }
+
+// struct Books getBook(){
+//     struct Books book;
+//     printf("Enter ISBN: ");
+//     getString(book.isbn, 14);
+//     printf("Enter Title: ");
+//     getString(book.title, 50);
+//     printf("Enter Author: ");
+//     getString(book.author, 50);
+//     printf("Enter Price: ");
+//     scanf("%f", &book.price);
+//     return book;
+// }
+
+// void printBook(struct Books book){
+//     printf("| %-14s | %-26s | %-20s | %6.2f |\n", book.isbn, book.title, book.author, book.price);
+// }
+
+// void printLine(){
+//     printf("+-%-14s-+-%-26s-+-%-20s-+-%-6s-+\n", "----------------",
+//     "--------------------------", "--------------------", "------");
+// }
+
+// void printTitle(){
+//     printLine();
+//     printf("| %-14s | %-26s | %-20s | %-6s |\n", "isbn", "title", "author", "price");
+//     printLine();
+// }
+
+// void getString(char *str, int length){
+//     //clear keyboard buffer on Linux
+//     fseek(stdin, 0, SEEK_END);
+//     //clear keyboard buffer on Windows
+//     fflush(stdin);
+//     //input string
+//     fgets(str, length, stdin);
+//     str[strlen(str)-1] = '\0';
+//     //clear keyboard buffer on Linux
+//     fseek(stdin, 0, SEEK_END);
+//     //clear keyboard buffer on Windows  
+//     fflush(stdin);
+
+// }
 int main(){
-    struct Books books[3] =
-    {
-        {"123456789", "The programming", "Nuha Ali", 50000},
-        {"987654321", "Telecom Billing", "Zara Ali", 150000}
-    };
-    int i, count = 3;
-    printf("Input book 3:\n");
-
-    printLine();
+    FILE *f;
+    f = fopen("main.c", "r");
+    if(f != NULL){
+        char ch;
+        while((ch=fgetc(f))!= EOF){
+            putchar(ch);
+        }
+        fclose(f);
+    }else{
+        printf("Can't read text file.");
+    }
     return 0;
-}
-
-struct Books getBook(){
-    struct Books book;
-    printf("Enter ISBN: ");
-    getString(book.isbn, 14);
-    printf("Enter Title: ");
-    getString(book.title, 50);
-    printf("Enter Author: ");
-    getString(book.author, 50);
-    printf("Enter Price: ");
-    scanf("%f", &book.price);
-    return book;
-}
-
-void printBook(struct Books book){
-    printf("| %-14s | %-26s | %-20s | %6.2f |\n", book.isbn, book.title, book.author, book.price);
-}
-
-void printLine(){
-    printf("+-%-14s-+-%-26s-+-%-20s-+-%-6s-+\n", "----------------",
-    "--------------------------", "--------------------", "------");
-}
-
-void printTitle(){
-    printLine();
-    printf("| %-14s | %-26s | %-20s | %-6s |\n", "isbn", "title", "author", "price");
-    printLine();
-}
-
-void getString(char *str, int length){
-    //clear keyboard buffer on Linux
-    fseek(stdin, 0, SEEK_END);
-    //clear keyboard buffer on Windows
-    fflush(stdin);
-    //input string
-    fgets(str, length, stdin);
-    str[strlen(str)-1] = '\0';
-    //clear keyboard buffer on Linux
-    fseek(stdin, 0, SEEK_END);
-    //clear keyboard buffer on Windows  
-    fflush(stdin);
-
 }
