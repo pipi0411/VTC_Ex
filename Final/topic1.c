@@ -71,10 +71,10 @@ void saveToFile(char *accountName, char *accountNumber, char *pinCode, long int 
         printf("Cannot open file!\n");
         return;
     }
-    fprintf(file, "Ten tai khoan: %s\n", accountName);
-    fprintf(file, "So tai khoan: %s\n", accountNumber);
-    fprintf(file, "Ma pin: %s\n", pinCode);
-    fprintf(file, "So du: %ld\n", accBalance);
+    fprintf(file, "%s\n", accountName);
+    fprintf(file, "%s\n", accountNumber);
+    fprintf(file, "%s\n", pinCode);
+    fprintf(file, "%ld\n", accBalance);
     fclose(file);
     printf("Đa luu thong tin tai khoan vao file account-number.dat\n");
 }

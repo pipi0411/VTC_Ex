@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "topic1.c"
+#include "topic2.c"
 
 void display_menu(){
     printf("==================================\n");
@@ -8,7 +9,7 @@ void display_menu(){
     printf("\t      ATM        \n");
     printf("----------------------------------\n");
     printf("1. Create new ATM card\n");
-    printf("2. Show ATM card list\n");
+    printf("2. Login ATM\n");
     printf("3. Exit\n");
     printf("==================================\n");
     printf("Please choose: ");
@@ -43,7 +44,7 @@ int main(){
                 created_ATM();
                 break;
             case 2:
-                // show_atm_card_list();
+                loginATM();
                 break;
             case 3:
                 break;
