@@ -1,0 +1,12 @@
+San pham 1:
+Ma: 1
+Ten: ban phim
+So luong: 5
+Don gia: 50000.00
+
+San pham 2:
+Ma: 2
+Ten: chuot
+So luong: 5
+Don gia: 60000.00
+
