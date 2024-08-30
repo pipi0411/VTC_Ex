@@ -79,26 +79,91 @@ void printAcc(Account *acc) {
     printf("Balance: %lld\n", acc->accBalance);
 }
 
-int validateAccount(Account *acc, const char *accountNumber, const char *pinCode){
-    return strcmp(acc->accountNumber, accountNumber) == 0 && strcmp(acc->pinCode, pinCode) == 0;
-}
-
 void checkBalance(Account *acc) {
     printf("Your current balance is: %ld VND\n", acc->accBalance);
 }
-
 void withdrawCash(Account *acc) {
-    long int amount;
-    printf("Enter the amount you want to withdraw: ");
-    scanf("%ld", &amount);
+    int choice;
+    long int amount = 0;
+
+    printf("==================================\n");
+    printf("\tVTC Academy Bank\n");
+    printf("==================================\n");
+    printf("ATM Machine - Withdraw\n");
+    printf("1. 100.000 VND\n");
+    printf("2. 200.000 VND\n");
+    printf("3. 500.000 VND\n");
+    printf("4. 1.000.000 VND\n");
+    printf("5. 2.000.000 VND\n");
+    printf("6. Other number\n");
+    printf("7. Exit\n");
+    printf("----------------------------------\n");
+    printf("Your choice: ");
+    scanf("%d", &choice);
     deleteInput();
+    do{
+        switch (choice) {
+        case 1:
+            amount = 100000;
+            break;
+        case 2:
+            amount = 200000;
+            break;
+        case 3:
+            amount = 500000;
+            break;
+        case 4:
+            amount = 1000000;
+            break;
+        case 5:
+            amount = 2000000;
+            break;
+        case 6:
+            printf("Enter the amount you want to withdraw: ");
+            scanf("%ld", &amount);
+            deleteInput();
+            break;
+        case 7:
+            return;
+        default:
+            printf("Invalid choice!\n");
+            return;
+    }
+    }while(choice != 7);
+    
+
     if (amount > 0 && amount <= acc->accBalance) {
         acc->accBalance -= amount;
-       printf("Withdrawal successful! New balance: %ld VND\n", acc->accBalance);
+        printf("Withdrawal successful! New balance: %ld VND\n", acc->accBalance);
+
+        char printReceipt;
+        printf("Do you want to print a receipt? (Y/N): ");
+        scanf("%c", &printReceipt);
+        deleteInput();
+        
+        if (printReceipt == 'Y' || printReceipt == 'y') {
+            printf("==================================\n");
+            printf("\tVTC Academy Bank\n");
+            printf("==================================\n");
+            printf("BIEN LAI RUT TIEN TAI ATM\n");
+            printf("Ngay: 20/12/2021\tGio: 10:10\n");
+            printf("So the: %s\n", acc->accountNumber);
+            printf("So giao dich: 0987654321\n");
+            printf("So tien: %ld VND\n", amount);
+            printf("Noi dung: Rut tien mat tai ATM\n");
+            printf("----------------------------------\n");
+            printf("So du: %ld VND\n", acc->accBalance);
+            printf("Le phi: 1.000 VND\n");
+            printf("VAT: 100 VND\n");
+            printf("----------------------------------\n");
+            printf("Cam on quy khach da su dung dich vu cua chung toi!\n");
+        }
     } else {
         printf("Invalid amount or insufficient balance!\n");
     }
 }
+
+
 
 void transferMoney(Account *acc){
     char destinationAccount[MAX_ACCOUNT_NUMBER_LENGTH];
@@ -109,6 +174,7 @@ void transferMoney(Account *acc){
     printf("Enter the amount you want to transfer: ");
     scanf("%ld", &amount);
     deleteInput();
+
     if (amount > 0 && amount <= acc->accBalance) {
         acc->accBalance -= amount;
         printf("Transfer successful! New balance: %ld VND\n", acc->accBalance);
@@ -117,18 +183,52 @@ void transferMoney(Account *acc){
     }
 }
 
-void changePin(Account *acc){
+void changePin(Account *acc) {
+    char currentPin[MAX_PIN_LENGTH];
     char newPin[MAX_PIN_LENGTH];
-    printf("Enter new PIN(6 digits): ");
+    char confirmPin[MAX_PIN_LENGTH];
+
+    // Ask for the current PIN
+    printf("Enter current PIN: ");
+    fgets(currentPin, MAX_PIN_LENGTH, stdin);
+    currentPin[strcspn(currentPin, "\n")] = '\0';
+
+    // Validate the current PIN
+    if (strcmp(currentPin, acc->pinCode) != 0) {
+        printf("Invalid current PIN!\n");
+        return;
+    }
+    deleInput();
+
+    // Prompt for the new PIN
+    printf("Enter new PIN (6 digits): ");
     fgets(newPin, MAX_PIN_LENGTH, stdin);
     newPin[strcspn(newPin, "\n")] = '\0';
-    if (strlen(newPin) == 6 && strspn(newPin, "0123456789") == 6) {
-        strcpy(acc->pinCode, newPin);
-        printf("Change PIN successful!\n");
-    } else {
-        printf("Invalid PIN!\n");
+    deleInput();
+
+    // Check if the new PIN is valid
+    if (strlen(newPin) != 6 || strspn(newPin, "0123456789") != 6) {
+        printf("Invalid PIN format! Please enter exactly 6 digits.\n");
+        return;
     }
+
+    // Prompt for confirmation of the new PIN
+    printf("Confirm new PIN: ");
+    fgets(confirmPin, MAX_PIN_LENGTH, stdin);
+    confirmPin[strcspn(confirmPin, "\n")] = '\0';
+    deleInput();
+
+    // Check if the confirmation matches the new PIN
+    if (strcmp(newPin, confirmPin) != 0) {
+        printf("PIN confirmation does not match. Please try again.\n");
+        return;
+    }
+
+    // If everything is valid, update the PIN
+    strcpy(acc->pinCode, newPin);
+    printf("Change PIN successful!\n");
 }
+
 
 void saveAccountToFile(Account *acc, const char *filename){
     FILE *file = fopen(filename, "w");
@@ -148,8 +248,6 @@ void loginATM(){
     char pinCode[MAX_PIN_LENGTH + 1];
     char buffer[100];
 
-   
-
     while(1) {
         printf("Enter account number: ");
         fgets(buffer, 99, stdin);
@@ -157,7 +255,7 @@ void loginATM(){
         
         sprintf(accountNumber, "%s", buffer);
         accountNumber[MAX_ACCOUNT_NUMBER_LENGTH] = '\0';
-       
+        strcpy(accountNumber, buffer);
 
         int valid_acc = 0;
         for(int i = 0; i < accListSize; i++) {
@@ -207,38 +305,33 @@ void loginATM(){
     
     printf("Login successful!\n");
 
-    while(1) {
-        getchar();
-        break;
+    int choice;
+    do{
+        displayMenu();
+        scanf("%d", &choice);
+        deleteInput();
+        switch (choice)
+        {
+            case 1:
+            checkBalance(&accList[acc_index]);
+            break;
+            case 2:
+            withdrawCash(&accList[acc_index]);
+            break;
+            case 3:
+            transferMoney(&accList[acc_index]);
+            break;
+            case 4:
+            changePin(&accList[acc_index]);
+            break;
+            case 5:
+            printf("Exiting...\n");
+            break;
+            default:
+            printf("Invalid choice! Please try again.\n");
+            break;
+        }
     }
-
-    // int choice;
-    // do{
-    //     displayMenu();
-    //     scanf("%d", &choice);
-    //     deleteInput();
-    //     switch (choice)
-    //     {
-    //         case 1:
-    //         checkBalance(&acc);
-    //         break;
-    //         case 2:
-    //         withdrawCash(&acc);
-    //         break;
-    //         case 3:
-    //         transferMoney(&acc);
-    //         break;
-    //         case 4:
-    //         changePin(&acc);
-    //         break;
-    //         case 5:
-    //         printf("Exiting...\n");
-    //         break;
-    //         default:
-    //         printf("Invalid choice! Please try again.\n");
-    //         break;
-    //     }
-    // }
-    // while(choice != 5);
-    // saveAccountToFile(&acc, FILE_NAME);
+    while(choice != 5);
+    saveAccountToFile(&accList[acc_index], FILE_NAME);
 }
