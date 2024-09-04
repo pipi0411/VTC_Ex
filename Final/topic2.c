@@ -74,17 +74,40 @@ void displayMenu(){
     printf("==================================\n");
     printf("Please choice: ");
 }
+char *formatMoney(long int amount) {
+    static char formattedAmount[50];
+    int len = 0;
+    int i = 0;
+    char buffer[50];
 
-void printAcc(Account *acc) {
-    printf("Account Loaded:\n");
-    printf("Name: %s\n", acc->accountName);
-    printf("Number: %s\n", acc->accountNumber);
-    printf("PIN: %s\n", acc->pinCode);
-    printf("Balance: %lld\n", acc->accBalance);
+    sprintf(buffer, "%ld", amount);
+    len = strlen(buffer);
+    int commaCount = (len - 1) / 3;
+
+    formattedAmount[0] = '\0';
+
+    for (i = 0; i < len; i++) {
+        strcat(formattedAmount, (char[]){ buffer[i], '\0' });
+        if ((len - i - 1) % 3 == 0 && i != len - 1) {
+            strcat(formattedAmount, ",");
+        }
+    }
+
+    return formattedAmount;
 }
 
+// void printAcc(Account *acc) {
+//     printf("Account Loaded:\n");
+//     printf("Name: %s\n", acc->accountName);
+//     printf("Number: %s\n", acc->accountNumber);
+//     printf("PIN: %s\n", acc->pinCode);
+//     printf("Balance: %s VND\n", formatMoney(acc->accBalance));
+// }
+
 void checkBalance(Account *acc) {
-    printf("Your current balance is: %ld VND\n", acc->accBalance);
+    printf("Your current name is: %s\n", acc->accountName);
+    printf("Your current account number is: %s\n",acc->accountNumber);
+    printf("Your current balance is: %s VND\n", formatMoney(acc->accBalance));
 }
 
 char *maskAccountNumber(char *accountNumber){
@@ -162,8 +185,9 @@ void withdrawCash(Account *acc) {
         long int total = amount + fee + vat;
 
         if (total > 0 && total <= acc->accBalance) {
+            printf("Current balance: %s VND\n", formatMoney(acc->accBalance));
             acc->accBalance -= total;
-            printf("Withdrawal successful! New balance: %ld VND\n", acc->accBalance);
+            printf("Withdrawal successful! New balance: %s VND\n", formatMoney(acc->accBalance));
 
             char printReceipt;
             printf("Do you want to print a receipt? (Y/N): ");
@@ -190,10 +214,10 @@ void withdrawCash(Account *acc) {
                 printf("So the: %s\n", maskAccountNumber(acc->accountNumber));
                 printf("Ten tai khoan: %s\n", acc->accountName);
                 printf("So giao dich: %09d\n", transactionId);
-                printf("So tien: %ld VND\n", amount);
+                printf("So tien: %s VND\n", formatMoney(amount));
                 printf("Noi dung: Rut tien mat tai ATM\n");
                 printf("----------------------------------\n"); 
-                printf("So du: %ld VND\n", acc->accBalance);
+                printf("So du: %s VND\n", formatMoney(acc->accBalance));
                 printf("Le phi: %ld VND\n", fee);
                 printf("VAT: %ld VND\n", vat);  
                 printf("----------------------------------\n");
@@ -212,7 +236,6 @@ void transferMoney(Account *acc){
     printf("Enter destination account number: ");
     fgets(destinationAccount, MAX_ACCOUNT_NUMBER_LENGTH, stdin);
     destinationAccount[strcspn(destinationAccount, "\n")] = '\0';\
-    deleteInput();
     int destAccountIndex = -1;
     for(int i = 0; i < accListSize; i++) {
         if(strcmp(destinationAccount, accList[i].accountNumber) == 0) {
@@ -224,6 +247,7 @@ void transferMoney(Account *acc){
         printf("Invalid destination account number!\n");
         return;
     }
+    deleteInput();
 
     char *maskedAccount = maskAccountNumber(destinationAccount);
 
@@ -236,9 +260,10 @@ void transferMoney(Account *acc){
     long int total = amount + fee + vat;
 
     if ( total > 0 && total <= acc->accBalance) {
+        printf("Current balance: %s VND\n", formatMoney(acc->accBalance));
         acc->accBalance -= total;
         accList[destAccountIndex].accBalance += amount;
-        printf("Transfer successful! New balance: %ld VND\n", acc->accBalance);
+        printf("Transfer successful! New balance: %s VND\n", formatMoney(acc->accBalance));
         
         char printReceipt;
         printf("Do you want to print a receipt? (Y/N): ");
@@ -265,10 +290,10 @@ void transferMoney(Account *acc){
             printf("Tu so the: %s\n", maskAccountNumber(acc->accountNumber));
             printf("Den so the: %s\n", maskAccountNumber(destinationAccount));
             printf("So giao dich: %09d\n", transactionId);
-            printf("So tien: %ld VND\n", amount);
+            printf("So tien: %s VND\n", formatMoney(amount));
             printf("Noi dung: CHUYEN TIEN 24H\n");
             printf("----------------------------------\n"); 
-            printf("So du: %ld VND\n", acc->accBalance);
+            printf("So du: %s VND\n", formatMoney(acc->accBalance));
             printf("Le phi: %ld VND\n", fee);
             printf("VAT: %ld VND\n", vat);  
             printf("----------------------------------\n");
@@ -323,7 +348,7 @@ void changePin(Account *acc) {
     // If everything is valid, update the PIN
     strcpy(acc->pinCode, newPin);
     printf("Change PIN successful!\n");
-}
+}   
 
 void saveAccountToFile() {
     FILE *file = fopen(FILE_NAME, "w");
