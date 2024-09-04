@@ -76,7 +76,7 @@ void saveToFile(char *accountName, char *accountNumber, char *pinCode, long int 
     fprintf(file, "%s\n", pinCode);
     fprintf(file, "%ld\n", accBalance);
     fclose(file);
-    printf("Đa luu thong tin tai khoan vao file account-number.dat\n");
+    printf("Da luu thong tin tai khoan vao file account-number.dat\n");
 }
 
 
