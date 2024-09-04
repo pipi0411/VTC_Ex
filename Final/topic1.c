@@ -161,5 +161,4 @@ if ( saveChoice == 'Y' || saveChoice == 'y')
   {
     printf("Goodbye\n");
   }
-
 }
