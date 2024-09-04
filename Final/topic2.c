@@ -213,6 +213,18 @@ void transferMoney(Account *acc){
     fgets(destinationAccount, MAX_ACCOUNT_NUMBER_LENGTH, stdin);
     destinationAccount[strcspn(destinationAccount, "\n")] = '\0';\
     deleteInput();
+    int destAccountIndex = -1;
+    for(int i = 0; i < accListSize; i++) {
+        if(strcmp(destinationAccount, accList[i].accountNumber) == 0) {
+            destAccountIndex = i;
+            break;
+        }
+    }
+    if (destAccountIndex == -1) {
+        printf("Invalid destination account number!\n");
+        return;
+    }
+
     char *maskedAccount = maskAccountNumber(destinationAccount);
 
     printf("Enter the amount you want to transfer: ");
@@ -225,6 +237,7 @@ void transferMoney(Account *acc){
 
     if ( total > 0 && total <= acc->accBalance) {
         acc->accBalance -= total;
+        accList[destAccountIndex].accBalance += amount;
         printf("Transfer successful! New balance: %ld VND\n", acc->accBalance);
         
         char printReceipt;
@@ -312,14 +325,17 @@ void changePin(Account *acc) {
     printf("Change PIN successful!\n");
 }
 
-
-void saveAccountToFile(Account *acc, const char *filename){
-    FILE *file = fopen(filename, "w");
+void saveAccountToFile() {
+    FILE *file = fopen(FILE_NAME, "w");
     if (!file) {
-        printf("Could not open file %s\n", filename);
+        printf("Could not open file %s\n", FILE_NAME);
         exit(1);
     }
-    fprintf(file, "%s\n%s\n%s\n%ld\n", acc->accountName, acc->accountNumber, acc->pinCode, acc->accBalance);
+
+    for (int i = 0; i < accListSize; i++) {
+        fprintf(file, "%s\n%s\n%s\n%ld\n", accList[i].accountName, accList[i].accountNumber, accList[i].pinCode, accList[i].accBalance);
+    }
+
     fclose(file);
 }
 
@@ -419,5 +435,4 @@ void loginATM(){
         }
     }
     while(choice != 5);
-    // saveAccountToFile(&accList[acc_index], FILE_NAME);
 }
