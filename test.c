@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <string.h>
+// #include <stdio.h>
+// #include <string.h>
 
 // struct Books
 // {
@@ -130,17 +130,70 @@
 //     fflush(stdin);
 
 // }
-int main(){
-    FILE *f;
-    f = fopen("main.c", "r");
-    if(f != NULL){
-        char ch;
-        while((ch=fgetc(f))!= EOF){
-            putchar(ch);
-        }
-        fclose(f);
-    }else{
-        printf("Can't read text file.");
-    }
-    return 0;
-}
+// int main(){
+//     FILE *f;
+//     f = fopen("main.c", "r");
+//     if(f != NULL){
+//         char ch;
+//         while((ch=fgetc(f))!= EOF){
+//             putchar(ch);
+//         }
+//         fclose(f);
+//     }else{
+//         printf("Can't read text file.");
+//     }
+//     return 0;
+// }
+
+
+//Write a C program that will take a number as input and find the absolute difference between the input number and 51. If the input number is greater than 51, it will return triple the absolute difference.
+
+// #include <stdio.h>
+// #include <stdlib.h>
+
+// int main (){
+//     int num;
+//     printf("Enter a number: ");
+//     scanf("%d", &num);
+//     if(num > 51){
+//         printf("Triple the absolute difference: %d\n", abs(num-51)*3);
+//     }else{
+//         printf("Absolute difference: %d\n", abs(num-51));
+//     }
+//     return 0;
+// }
+
+
+//
+
+// #include <stdio.h>
+
+// int main(){
+//     int a = 40;
+//     int b = 20;
+//     if ( a == 30 || b == 30 || (a + b == 30)){
+//         printf("True\n");
+//     }else{
+//         printf("False\n");
+//     }
+//     return 0;
+
+// }
+
+
+//Write a C program to check a given integer and return true if it is within 10 of 100 or 200.
+
+// #include <stdio.h>
+// #include <stdlib.h>
+
+// int main(){
+//     int num;
+//     printf("Enter a number: ");
+//     scanf("%d", &num);
+//     if ( abs(num-100) <= 10 || abs(num-200) <= 10){
+//         printf("True\n");
+//     }else{
+//         printf("False\n");
+//     }
+//     return 0;
+// }
