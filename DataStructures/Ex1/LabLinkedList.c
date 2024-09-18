@@ -37,8 +37,38 @@ void insertAtEnd(Node **head, int value){
 }
 
 //Chèn 1 phần tử vào vị trí cụ thể trong danh sách liên kết
-void insertAtIndex(Node **head, int value, int index){
+void insertAtIndex(Node **head, int value, int index) {
+    if (index < 0) {
+        return;  // Index không hợp lệ
+    }
     
+    Node *newNode = createNode(value);
+    
+    // Nếu muốn chèn vào đầu danh sách
+    if (index == 0) {
+        newNode->next = *head; // newNode trỏ đến head
+        *head = newNode;
+        return;
+    }
+    
+    Node *temp = *head;
+    
+    // Di chuyển `temp` đến vị trí (index - 1)
+    for (int i = 0; i < index - 1; i++) {
+        if (temp == NULL) {  // Nếu đến cuối danh sách mà không đủ phần tử
+            return;
+        }
+        temp = temp->next;
+    }
+    
+    // Kiểm tra nếu vị trí không hợp lệ
+    if (temp == NULL) {
+        return;
+    }
+    
+    // Chèn newNode vào vị trí chỉ định
+    newNode->next = temp->next;
+    temp->next = newNode;
 }
 
 //Xóa phần tử đầu danh sách liên kết 
@@ -105,7 +135,9 @@ int main(){
     printList(head);   
     deleteEnd(&head);
     printList(head);
-    printf("Index of 3: %d\n", findElement(head, 3));
+    printf("Index of value 3: %d\n", findElement(head, 3));
+    insertAtIndex(&head, 2, 1);
+    printList(head);
     return 0;
 }
 
