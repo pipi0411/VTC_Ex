@@ -11,21 +11,6 @@ typedef struct MobilePhone{
     struct MobilePhone *next;
 } MobilePhone;
 
-// Hàm lưu thông tin điện thoại di động vào file
-void saveMobilePhone(MobilePhone *head){
-    FILE *f = fopen("mobilephone.txt", "w");
-    if(f == NULL){
-        printf("Error opening file\n");
-        return;
-    }
-    MobilePhone* temp = head;
-    while(temp != NULL){
-        fprintf(f, "%d %s %s %d\n", temp->mobile_id, temp->name, temp->brand, temp->price);
-        temp = temp->next;
-    }
-    fclose(f);
-    printf("Mobile phone saved successfully.\n");
-}
 
 // Hàm thêm điện thoại di động vào danh sách
 void addMobilePhone(MobilePhone **head, int id, char name[], char brand[], int price){
@@ -44,7 +29,6 @@ void addMobilePhone(MobilePhone **head, int id, char name[], char brand[], int p
         }
         temp->next = newMobile; // Gán giá trị next của temp cho điện thoại mới
     }
-    saveMobilePhone(*head); // Lưu thông tin điện thoại di động vào file
     printf("Mobile phone added successfully.\n");
 }
 
@@ -68,7 +52,6 @@ void deleteMobilePhone(MobilePhone **head, int id){
     printf("Mobile phone with ID %d deleted successfully.\n", id);
     prev->next = temp->next; // Cập nhật giá trị next của prev
     free(temp); // Giải phóng bộ nhớ của temp
-    saveMobilePhone(*head); // Lưu thông tin điện thoại di động vào file
 }
 
 // Hàm cập nhật thông tin điện thoại di động
@@ -85,7 +68,6 @@ void updateMobile(MobilePhone **head, int id, char name[], char brand[], int pri
     strcpy(temp->name, name);  // Cập nhật giá trị name
     strcpy(temp->brand, brand); // Cập nhật giá trị brand
     temp->price = price; // Cập nhật giá trị price
-    saveMobilePhone(*head); // Lưu thông tin điện thoại di động vào file
     printf("Mobile phone with ID %d updated successfully.\n", id);
 }
 
@@ -102,6 +84,51 @@ void displayMobile(MobilePhone *head){
         temp = temp->next;
     }
 }
+
+// Hàm đổi danh sách liên kết sang mảng
+void listToArray(MobilePhone* head, MobilePhone* arr[], int *n) {
+    *n = 0;
+    MobilePhone* temp = head; // Khai báo biến tạm và gán giá trị head cho biến tạm
+    while (temp != NULL) {
+        arr[(*n)++] = temp; // Gán giá trị temp cho mảng arr
+        temp = temp->next;// Cập nhật giá trị temp
+    }
+}
+// Hàm so sánh cho qsort
+int compareMobilePhones(const void* a, const void* b) {
+    return (*(MobilePhone**)a)->mobile_id - (*(MobilePhone**)b)->mobile_id;
+}
+
+// Tìm kiếm nhị phân điện thoại theo ID
+MobilePhone* binarySearch(MobilePhone* arr[], int l, int r, int id) {
+    if (r >= l) {
+        int mid = l + (r - l) / 2;
+        if (arr[mid]->mobile_id == id)
+            return arr[mid];
+        if (arr[mid]->mobile_id > id)
+            return binarySearch(arr, l, mid - 1, id);
+        return binarySearch(arr, mid + 1, r, id);
+    }
+    return NULL;
+}
+// Tìm kiếm điện thoại bằng ID
+void searchMobilePhone(MobilePhone* head, int id) {
+    int n;
+    MobilePhone* arr[100]; // Giả sử có tối đa 100 điện thoại trong danh sách
+    listToArray(head, arr, &n);
+
+    // Sắp xếp danh sách bằng qsort
+    qsort(arr, n, sizeof(MobilePhone*), compareMobilePhones);
+
+    // Tìm kiếm nhị phân
+    MobilePhone* result = binarySearch(arr, 0, n - 1, id);
+    if (result != NULL) {
+        printf("Tim thay dien thoai: %d - %s - %s - %d\n", result->mobile_id, result->name, result->brand, result->price);
+    } else {
+        printf("Khong tim thay dien thoai voi ID %d\n", id);
+    }
+}
+
 
 void shopMenu(MobilePhone **head);
 void deleteInput(){
@@ -129,6 +156,14 @@ void shopMenu(MobilePhone **head){
                 break;
             case 2:
                 //Display top 5 hightest price mobile phone
+                MobilePhone* arr[100]; // Giả sử có tối đa 100 điện thoại trong danh sách
+                int n;
+                listToArray(*head, arr, &n);
+                qsort(arr, n, sizeof(MobilePhone*), compareMobilePhones);
+                printf("Top 5 hightest price mobile phone\n");
+                for(int i = n - 1; i >= n - 5; i--){
+                    printf("%d - %s - %s - %d\n", arr[i]->mobile_id, arr[i]->name, arr[i]->brand, arr[i]->price);
+                }
                 break;
             case 3:
                 break;
@@ -179,12 +214,30 @@ int main(){
         break;
     case 2:
         //Search mobile phone
+        printf("Enter mobile phone ID: ");
+        scanf("%d", &id);
+        deleteInput();
+        searchMobilePhone(head, id);
         break;
     case 3:
         //Update mobile phone
+        printf("Enter mobile phone name: ");
+        scanf("%[^\n]", name);
+        deleteInput();
+        printf("Enter mobile phone brand: ");
+        scanf("%[^\n]", brand);
+        printf("Enter mobile phone price: ");
+        scanf("%d", &price);
+        deleteInput();
+        updateMobile(&head, id, name, brand, price);
         break;
     case 4:
         //Delete mobile phone
+        printf("Enter mobile phone ID: ");
+        scanf("%d", &id);
+        deleteInput();
+        deleteMobilePhone(&head, id);
+        printf("Mobile phone with ID %d deleted successfully.\n", id);
         break;
     case 5:
         shopMenu(&head);
