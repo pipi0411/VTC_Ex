@@ -107,5 +107,29 @@ Node *deleteNode(Node *root, int value){
     if(root == NULL) return root; // Nếu cây rỗng, trả về.
     if(value < root->value){
         root->left = deleteNode(root->left, value); // Nếu giá trị cần xóa nhỏ hơn giá trị của nút hiện tại, xóa nút trong cây con bên trái.
+    }else if(value > root->value){
+        root->right = deleteNode(root->right, value); // Nếu giá trị cần xóa lớn hơn giá trị của nút hiện tại, xóa nút trong cây con bên phải.
+    }else{
+        if(root->left == NULL){
+            Node *temp = root->right; // Lưu trữ con phải của nút hiện tại.
+            free(root); // Giải phóng nút hiện tại.
+            return temp; // Trả về con phải của nút hiện tại.
+        }else if (root->right == NULL){
+            Node *temp = root->left; // Lưu trữ con trái của nút hiện tại.
+            free(root); // Giải phóng nút hiện tại.
+            return temp; // Trả về con trái của nút hiện tại.
+        }
+        Node *temp = findMin(root->right); // Tìm nút nhỏ nhất trong cây con bên phải.
+        root->value = temp->value; // Gán giá trị của nút nhỏ nhất vào nút hiện tại.
+        root->right = deleteNode(root->right, temp->value); // Xóa nút nhỏ nhất trong cây con bên phải.
     }
+    
+}
+
+//Độ sâu của cây nhị phân
+int depth(Node *root){
+    if(root == NULL) return 0; // Nếu cây rỗng, trả về 0.
+    int leftDepth = depth(root->left); // Đệ quy tìm độ sâu của cây con bên trái.
+    int rightDepth = depth(root->right); // Đệ quy tìm độ sâu của cây con bên phải.
+    return leftDepth > rightDepth ? leftDepth + 1 : rightDepth + 1; // Trả về độ sâu lớn nhất của hai cây con cộng thêm 1.
 }
