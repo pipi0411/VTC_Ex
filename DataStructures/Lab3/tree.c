@@ -133,3 +133,11 @@ int depth(Node *root){
     int rightDepth = depth(root->right); // Đệ quy tìm độ sâu của cây con bên phải.
     return leftDepth > rightDepth ? leftDepth + 1 : rightDepth + 1; // Trả về độ sâu lớn nhất của hai cây con cộng thêm 1.
 }
+
+//Kiểm tra cây nhị phân có cân bằng không
+int isBalanced(Node *root){
+    if (root = NULL) return 1; // Nếu cây rỗng, trả về 1.
+    int leftDepth = depth(root->left); // Tính độ sâu của cây con bên trái.
+    int rightDepth = depth(root->right); // Tính độ sâu của cây con bên phải.
+    return abs(leftDepth - rightDepth) <= 1 && isBalanced(root->left) && isBalanced(root->right); // Trả về 1 nếu độ sâu của hai cây con không chênh lệch quá 1 và cả hai cây con đều cân bằng.
+}
