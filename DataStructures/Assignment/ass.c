@@ -1,33 +1,48 @@
-// Xây dựng một chương trình quản lý sách trong thư viện sử dụng các cấu trúc dữ liệu cơ bản như: mảng, danh sách liên kết, stack và queue.:
-
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+
 #define MAX 10
 #define MAX_BOOK 3
+#define STACK_MAX 100
+#define QUEUE_MAX 100
 
-//Khởi tạo mảng tĩnh chứa danh sách 10 cuốn sách
-struct Book{
+// Khởi tạo mảng tĩnh chứa danh sách 10 cuốn sách
+struct Book {
     char id_book[5];
     char name[50];
     char author[50];
     int year;
 };
+
 // Hàm danh sách liên kết đơn quản lý danh sách mượn sách của người dùng
-typedef struct User{
+typedef struct User {
     char id_user[5];
     char name[50];
     char borrowed_book[MAX_BOOK][5];
     struct User *next;
 } User;
 
-void deleteInput(){
+struct Stack {
+    char returnedBooks[STACK_MAX][5];
+    int top;
+};
+
+struct Queue {
+    char waitingUsers[QUEUE_MAX][5];
+    int front, rear;
+};
+
+struct User *head = NULL;
+
+// Hàm xóa buffer sau khi nhập
+void deleteInput() {
     char c;
-    while((c = getchar()) != '\n' && c != EOF);
+    while ((c = getchar()) != '\n' && c != EOF);
 }
 
-// Hàm tạo cuốn sách tĩnh
-void createdBook(struct Book books[MAX]){
+// Hàm tạo danh sách sách tĩnh
+void createdBook(struct Book books[MAX]) {
     struct Book tempBooks[MAX] = {
         {"B001", "The Great Gatsby", "F. Scott Fitzgerald", 1925},
         {"B002", "To Kill a Mockingbird", "Harper Lee", 1960},
@@ -40,206 +55,249 @@ void createdBook(struct Book books[MAX]){
         {"B009", "Crime and Punishment", "Fyodor Dostoevsky", 1866},
         {"B010", "Brave New World", "Aldous Huxley", 1932}
     };
-    // copy tempBooks vào books
-    for(int i = 0; i < MAX; i++){
-        books[i] = tempBooks[i]; 
+
+    for (int i = 0; i < MAX; i++) {
+        books[i] = tempBooks[i];
     }
+}
+
+// Hàm hiển thị danh sách sách
+void displayBooks(struct Book books[], int n) {
     printf("+-------+---------------------------+-----------------------+--------------+\n"); 
     printf("|  ID   |          Name             |        Author         | Publish Year |\n");
     printf("+-------+---------------------------+-----------------------+--------------+\n");
-    
-    for(int i = 0; i < MAX; i++){
+
+    for (int i = 0; i < n; i++) {
         printf("| %-5s | %-25s | %-21s | %-12d |\n",
-        books[i].id_book, books[i].name, books[i].author, books[i].year); 
+            books[i].id_book, books[i].name, books[i].author, books[i].year);
     }
+
     printf("+-------+---------------------------+-----------------------+--------------+\n");
 }
 
 // Hàm tìm kiếm sách theo mã sách
-void searchBook(struct Book books[], int n, char id_book[]){  //Hàm tìm kiếm sách theo mã sách trong danh sách sách books có n cuốn sách và mã sách id_book
-    int flag = 0; //Biến kiểm tra sách có tồn tại hay không
-    for(int i = 0; i < n; i++){  //Duyệt qua từ đầu đến cuối danh sách sách để tìm kiếm
-        if( 
-            strcmp(books[i].id_book, id_book) == 0
-        ){ // Nếu tìm thấy sách thì in ra thông tin sách và kết thúc hàm
+void searchBook(struct Book books[], int n, char id_book[]) {
+    int flag = 0;
+    for (int i = 0; i < n; i++) {
+        if (strcmp(books[i].id_book, id_book) == 0) {
             printf("+-------+---------------------------+-----------------------+--------------+\n"); 
             printf("|  ID   |          Name             |        Author         | Publish Year |\n");
             printf("+-------+---------------------------+-----------------------+--------------+\n");
             printf("| %-5s | %-25s | %-21s | %-12d |\n",
-            books[i].id_book, books[i].name, books[i].author, books[i].year); 
+                books[i].id_book, books[i].name, books[i].author, books[i].year); 
             printf("+-------+---------------------------+-----------------------+--------------+\n");
             flag = 1;
             break;
         }
     }
-    if(flag == 0){ //Nếu không tìm thấy sách thì in ra thông báo không tìm thấy
-            printf("Not found book with id: %s\n", id_book);
+    if (flag == 0) {
+        printf("Not found book with id: %s\n", id_book);
     }
 }
-// Khởi tạo danh sách liên kết đơn
-struct User *head = NULL; // Khai báo biến head cho danh sách liên kết đơn
 
 // Hàm thêm người dùng mới
-void addUser(char user_id[], char name[], char borrowed_book[MAX_BOOK][5]){
-    struct User *newUser = (struct User*)malloc(sizeof(struct User)); // Cấp phát bộ nhớ cho người dùng mới
+void addUser(char user_id[], char name[], char borrowed_book[MAX_BOOK][5]) {
+    struct User *newUser = (struct User*)malloc(sizeof(struct User));
+    strcpy(newUser->id_user, user_id);
+    strcpy(newUser->name, name);
 
-    strcpy(newUser->id_user, user_id); // Gán giá trị id_user
-    strcpy(newUser->name, name); // Gán giá trị name
-
-    for(int i = 0; i < MAX_BOOK; i++){ // Duyệt qua danh sách sách mượn
-        strcpy(newUser->borrowed_book[i], borrowed_book[i]); // Gán giá trị sách mượn
+    for (int i = 0; i < MAX_BOOK; i++) {
+        strcpy(newUser->borrowed_book[i], borrowed_book[i]);
     }
-    newUser->next = NULL; // Gán giá trị next
-    if(head == NULL){ // Nếu danh sách rỗng
-        head = newUser; // Gán head bằng người dùng mới
-    }else{ // Nếu danh sách không rỗng
-        struct User *temp = head; // Khai báo biến tạm temp
-        while(temp->next != NULL){ // Duyệt qua danh sách liên kết đơn
-            temp = temp->next; // Di chuyển tới phần tử tiếp theo
+
+    newUser->next = NULL;
+    if (head == NULL) {
+        head = newUser;
+    } else {
+        struct User *temp = head;
+        while (temp->next != NULL) {
+            temp = temp->next;
         }
-        temp->next = newUser; // Gán giá trị người dùng mới vào phần tử tiếp theo
+        temp->next = newUser;
     }
-    printf("Add user successfully\n");
+    printf("User added successfully.\n");
 }
 
-// Hàm xóa người dùng theo id
-void deleteUser(char id_user[]){
-    struct User *temp = head; // Khai báo biến tạm temp
-    struct User *prev = NULL; // Khai báo biến tạm prev
-
-    // Nếu danh sách rỗng
-    if(temp == NULL){
-        printf("No user to delete.\n");
+// Hàm hiển thị thông tin sách mượn của tất cả người dùng
+void displayBorrowed() {
+    struct User *temp = head;
+    if (temp == NULL) {
+        printf("No user to display.\n");
         return;
-    }
-    // Nếu người dùng cần xóa là người đầu tiên
-    if(strcmp(temp->id_user, id_user) == 0){ // So sánh id_user với id_user
-        head = temp->next; // Gán head bằng phần tử tiếp theo
-        free(temp); // Giải phóng bộ nhớ
-        printf("Delete user successfully\n");
-        return;
-    } 
-    // Tìm kiếm người dùng cần xóa
-    while(temp != NULL && strcmp(temp->id_user, id_user) != 0){ // So sánh id_user với id_user
-        prev = temp; // Gán giá trị temp cho prev
-        temp = temp->next; // Di chuyển tới phần tử tiếp theo
     }
 
-    // Nếu không tìm thấy người dùng cần xóa
-    if(temp == NULL){
-        printf("No user to delete.\n");
-        return;
+    printf("+-------+---------------------------+---------------------------------------------+\n"); 
+    printf("|  ID   |          Name             |        Borrowed Books                       |\n");
+    printf("+-------+---------------------------+---------------------------------------------+\n");
+
+    while (temp != NULL) {
+        printf("| %-5s | %-25s |", temp->id_user, temp->name);
+        for (int i = 0; i < MAX_BOOK; i++) {
+            if (strlen(temp->borrowed_book[i]) > 0) {
+                printf(" %-5s ", temp->borrowed_book[i]);
+            } else {
+                printf(" None  ");
+            }
+        }
+        printf("|\n");
+        temp = temp->next;
     }
-    // Xóa người dùng khỏi danh sách
-    prev->next = temp->next; // Gán giá trị phần tử tiếp theo cho prev
-    free(temp); // Giải phóng bộ nhớ
-    printf("Delete user successfully\n");
+
+    printf("+-------+---------------------------+---------------------------------------------+\n");
 }
 
+// Hàm khởi tạo stack
+void initStack(struct Stack *stack) {
+    stack->top = -1;
+}
 
-// Display brrowed book
-void displayBorrowed(){
+// Hàm thêm sách vào stack (push)
+void push(struct Stack *stack, char bookId[]) {
+    if (stack->top == STACK_MAX - 1) {
+        printf("Stack is full. Cannot push more books.\n");
+        return;
+    }
+    strcpy(stack->returnedBooks[++stack->top], bookId);
+    printf("Book %s returned and added to stack.\n", bookId);
+}
+
+// Hàm lấy sách khỏi stack (pop)
+void pop(struct Stack *stack) {
+    if (stack->top == -1) {
+        printf("Stack is empty. No book to return.\n");
+        return;
+    }
+    printf("Processing return of book %s\n", stack->returnedBooks[stack->top--]);
+}
+
+// Hàm khởi tạo queue
+void initQueue(struct Queue *queue) {
+    queue->front = queue->rear = -1;
+}
+
+// Kiểm tra xem queue có rỗng không
+int isEmpty(struct Queue *queue) {
+    return queue->front == -1;
+}
+
+// Hàm thêm người dùng vào queue (enqueue)
+void enqueue(struct Queue *queue, char userId[]) {
+    if (queue->rear == QUEUE_MAX - 1) {
+        printf("Queue is full. Cannot add more users.\n");
+        return;
+    }
+
+    if (isEmpty(queue)) {
+        queue->front = 0;
+    }
+
+    strcpy(queue->waitingUsers[++queue->rear], userId);
+    printf("User %s is added to the queue.\n", userId);
+}
+
+// Hàm lấy người dùng ra khỏi queue (dequeue)
+void dequeue(struct Queue *queue) {
+    if (isEmpty(queue)) {
+        printf("Queue is empty. No user to process.\n");
+        return;
+    }
+
+    printf("Processing user %s from the queue.\n", queue->waitingUsers[queue->front]);
+
+    if (queue->front == queue->rear) {
+        queue->front = queue->rear = -1;
+    } else {
+        queue->front++;
+    }
+}
+
+// Menu chính của chương trình
+int main() {
+    struct Book books[MAX];
+    struct Stack returnedBooks;
+    struct Queue waitingUsers;
+
+    initStack(&returnedBooks);
+    initQueue(&waitingUsers);
+    createdBook(books);
+
     int choice;
-    char id_user[5];
-    char name[50];
-    char borrowed_book[MAX_BOOK][5];
+    char id[5], name[50];
+    char borrowed_books[MAX_BOOK][5];
 
-    do{
-        printf("-----------Library Borrow Management-----------\n");
-        printf("===============================================\n");
-        printf("1. Add user\n");
-        printf("2. Delete user\n");
-        printf("3. Display borrowed book\n");
+    do {
+        printf("\n--- Library Management System ---\n");
+        printf("1. Display books\n");
+        printf("2. Search book by ID\n");
+        printf("3. Add user\n");
+        printf("4. Display borrowed books\n");
+        printf("5. Return a book (stack push)\n");
+        printf("6. Process returned book (stack pop)\n");
+        printf("7. Add user to waiting queue (enqueue)\n");
+        printf("8. Process user in queue (dequeue)\n");
         printf("0. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
-        deleteInput();
-        switch(choice){
+        deleteInput(); // Xóa buffer sau khi nhập
+
+        switch (choice) {
             case 1:
+                displayBooks(books, MAX);
+                break;
+            case 2:
+                printf("Enter book ID to search: ");
+                fgets(id, sizeof(id), stdin);
+                deleteInput();
+                id[strcspn(id, "\n")] = '\0';  // Loại bỏ ký tự newline
+                searchBook(books, MAX, id);
+                break;
+            case 3:
                 printf("Enter user ID: ");
-                scanf("%s", id_user);
+                fgets(id, sizeof(id), stdin);
+                id[strcspn(id, "\n")] = '\0';
                 deleteInput();
                 printf("Enter user name: ");
-                scanf("%s", name);
+                fgets(name, sizeof(name), stdin);
+                name[strcspn(name, "\n")] = '\0';
                 deleteInput();
-                for(int i = 0; i < MAX_BOOK; i++){
-                    printf("Enter borrowed book %d: ", i+1);
-                    scanf("%s", borrowed_book[i]);
+                for (int i = 0; i < MAX_BOOK; i++) {
+                    printf("Enter book %d ID (or leave empty): ", i + 1);
+                    fgets(borrowed_books[i], sizeof(borrowed_books[i]), stdin);
+                    borrowed_books[i][strcspn(borrowed_books[i], "\n")] = '\0';
                     deleteInput();
                 }
-                addUser(id_user, name, borrowed_book);
+                addUser(id, name, borrowed_books);
                 break;
-            case 2:
-                printf("Enter user ID: ");
-                scanf("%s", id_user);
-                deleteInput();
-                deleteUser(id_user);
-                break;
-            case 3:
-                struct User *temp = head;
-                if(temp == NULL){
-                    printf("No user to display\n");
-                }else{
-                    printf("+-------+---------------------------+-----------------------+--------------+\n"); 
-                    printf("|  ID   |          Name             |        Borrowed Book  |              |\n");
-                    printf("+-------+---------------------------+-----------------------+--------------+\n");
-                    while(temp != NULL){
-                        printf("| %-5s | %-25s | %-21s | %-12d |\n",
-                        temp->id_user, temp->name, temp->borrowed_book, temp->next); 
-                        temp = temp->next;
-                    }
-                    printf("+-------+---------------------------+-----------------------+--------------+\n");
-                }
-                break;
-            case 0:
-                printf("Exit program\n");
-                break;
-            default:
-                printf("Invalid choice\n");
-                break;
-        }
-    }while(choice != 0);
-
-}
-
-int main(){
-    struct Book books[MAX]; // Khai báo mảng books chứa thông tin sách
-    int choice; // Biến lựa chọn chức năng
-    createdBook(books); // Tạo danh sách sách tĩnh
-    do{
-        printf("-----------Library Management-----------\n");
-        printf("=======================================\n");
-        printf("1. Search book\n");
-        printf("2. Customer borrow book\n");
-        printf("3. Customer return book\n");
-        printf("0. Exit\n");
-        printf("Enter your choice: ");
-        scanf("%d", &choice);
-        deleteInput();
-        switch(choice){
-            case 1:
-                char id_book[5];
-                printf("Enter book ID: ");
-                scanf("%s", id_book);
-                deleteInput();
-                searchBook(books, MAX, id_book);
-                break;
-            case 2:
+            case 4:
                 displayBorrowed();
                 break;
-            case 3:
+            case 5:
+                printf("Enter book ID to return: ");
+                fgets(id, sizeof(id), stdin);
+                id[strcspn(id, "\n")] = '\0';
+                deleteInput();
+                push(&returnedBooks, id);
+                break;
+            case 6:
+                pop(&returnedBooks);
+                break;
+            case 7:
+                printf("Enter user ID to add to queue: ");
+                fgets(id, sizeof(id), stdin);
+                id[strcspn(id, "\n")] = '\0';
+                deleteInput();
+                enqueue(&waitingUsers, id);
+                break;
+            case 8:
+                dequeue(&waitingUsers);
                 break;
             case 0:
-                printf("Exit program\n");
+                printf("Exiting program.\n");
                 break;
             default:
-                printf("Invalid choice\n");
-                break;
+                printf("Invalid choice. Please try again.\n");
         }
-
-    }while(choice != 0);
-
+    } while (choice != 0);
 
     return 0;
-    
 }
