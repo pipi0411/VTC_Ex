@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ObjectOriented", "ObjectOriented", "{1B5466E0-8AA6-4B1F-938A-AA79985C0F4A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab1", "Lab1", "{C86D5CE0-5644-49F2-891B-5FA217E0FA03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project1", "ObjectOriented\Lab1\project1\project1.csproj", "{14E9318A-0D47-4622-97A4-160224EE8496}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14E9318A-0D47-4622-97A4-160224EE8496}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14E9318A-0D47-4622-97A4-160224EE8496}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14E9318A-0D47-4622-97A4-160224EE8496}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14E9318A-0D47-4622-97A4-160224EE8496}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C86D5CE0-5644-49F2-891B-5FA217E0FA03} = {1B5466E0-8AA6-4B1F-938A-AA79985C0F4A}
+		{14E9318A-0D47-4622-97A4-160224EE8496} = {C86D5CE0-5644-49F2-891B-5FA217E0FA03}
+	EndGlobalSection
+EndGlobal
