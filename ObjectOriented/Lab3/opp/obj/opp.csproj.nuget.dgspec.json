@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\ObjectOriented\\Lab2\\project2\\project2.csproj": {}
+    "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\ObjectOriented\\lab3\\opp\\opp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\ObjectOriented\\Lab2\\project2\\project2.csproj": {
+    "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\ObjectOriented\\lab3\\opp\\opp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\ObjectOriented\\Lab2\\project2\\project2.csproj",
-        "projectName": "project2",
-        "projectPath": "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\ObjectOriented\\Lab2\\project2\\project2.csproj",
+        "projectUniqueName": "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\ObjectOriented\\lab3\\opp\\opp.csproj",
+        "projectName": "opp",
+        "projectPath": "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\ObjectOriented\\lab3\\opp\\opp.csproj",
         "packagesPath": "C:\\Users\\pipi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\ObjectOriented\\Lab2\\project2\\obj\\",
+        "outputPath": "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\ObjectOriented\\lab3\\opp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pipi\\AppData\\Roaming\\NuGet\\NuGet.Config"

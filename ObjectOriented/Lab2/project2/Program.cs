@@ -86,7 +86,3 @@ enum Days { Sun, Mon, Tue, Wed, Thu, Fri, Sat } // enum ngày trong tuần
 Bài tập: Tìm các từ bắt đầu bằng ký tự 'S' trong chuỗi "A Thousand Splendid Suns".*/
 // Regex regex = new Regex(@"\bS\S*"); // biểu thức chính quy
 // MatchCollection = regex.Matches("A Thousand Splendid Suns"); // tìm chuỗi bắt đầu bằng 'S'
-
-
-
-

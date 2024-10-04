@@ -1,0 +1,15 @@
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\lab3\opp\bin\Debug\net8.0\opp.exe
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\lab3\opp\bin\Debug\net8.0\opp.deps.json
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\lab3\opp\bin\Debug\net8.0\opp.runtimeconfig.json
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\lab3\opp\bin\Debug\net8.0\opp.dll
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\lab3\opp\bin\Debug\net8.0\opp.pdb
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\lab3\opp\obj\Debug\net8.0\opp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\lab3\opp\obj\Debug\net8.0\opp.AssemblyInfoInputs.cache
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\lab3\opp\obj\Debug\net8.0\opp.AssemblyInfo.cs
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\lab3\opp\obj\Debug\net8.0\opp.csproj.CoreCompileInputs.cache
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\lab3\opp\obj\Debug\net8.0\opp.sourcelink.json
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\lab3\opp\obj\Debug\net8.0\opp.dll
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\lab3\opp\obj\Debug\net8.0\refint\opp.dll
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\lab3\opp\obj\Debug\net8.0\opp.pdb
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\lab3\opp\obj\Debug\net8.0\opp.genruntimeconfig.cache
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\lab3\opp\obj\Debug\net8.0\ref\opp.dll
