@@ -11,6 +11,9 @@ namespace QuanLyTruongHoc{
             subject.Display();
             Grade grade = new Grade("SV001", "Lap trinh C#", 8.5);
             grade.Display();
+            Class class1 = new Class("12A1", "Lop 12A1", lecturer);
+            class1.ListStudents.Add(student);
+            class1.Display();
             Console.ReadKey();
         }
     }

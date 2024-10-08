@@ -1,5 +1,5 @@
 using System;
-namespace QuanLyTruongHoc;
+namespace QuanLyTruongHoc{
 
 // Lớp Subject
 public class Subject
@@ -18,4 +18,4 @@ public class Subject
         Console.WriteLine($"Subject ID: {SubjectId}, Subject Name: {SubjectName}");
     }
 }
-
+}

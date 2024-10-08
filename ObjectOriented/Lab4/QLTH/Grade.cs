@@ -1,6 +1,5 @@
 using System;
-namespace QuanLyTruongHoc;
-
+namespace QuanLyTruongHoc{
 // Lớp Grade
 public class Grade
 {
@@ -21,4 +20,5 @@ public class Grade
         Console.WriteLine($"Student ID: {StudentId}, Subject Name: {SubjectName}, Score: {Score}");
     }
 
+}
 }

@@ -1,5 +1,5 @@
 using System;
-namespace QuanLyTruongHoc.Person;
+namespace QuanLyTruongHoc{
 
 // Lớp Lecturer kế thừa từ Person
 public class Lecturer : Person
@@ -19,4 +19,5 @@ public class Lecturer : Person
     {
         Console.WriteLine($"Lecturer ID: {LecturerId}, Name: {Name}, Date of birth: {Date.ToShortDateString()}, Faculty: {Faculty}, Specialized: {Specialized}");
     }
+}
 }
