@@ -80,6 +80,7 @@ namespace QuanLyTruongHoc{
                 switch (choice)
                 {
                     case 1:
+                    // Thêm sinh viên
                         Console.Write("Enter student id: ");
                         string studentId = Console.ReadLine();
                         Console.Write("Enter student name: ");
@@ -101,6 +102,7 @@ namespace QuanLyTruongHoc{
                         studentManager.AddStudent(new Student(studentId, name, date, classStudent, averageScore));
                         break;
                     case 2:
+                    // Sửa thông tin sinh viên
                         Console.Write("Enter student id: ");
                         studentId = Console.ReadLine();
                         Console.Write("Enter new student name: ");
@@ -120,14 +122,17 @@ namespace QuanLyTruongHoc{
                         studentManager.EditStudent(studentId, name, date, classStudent, averageScore);
                         break;
                     case 3:
+                    //  Xóa sinh viên
                         Console.Write("Enter student id: ");
                         studentId = Console.ReadLine();
                         studentManager.DeleteStudent(studentId);
                         break;
                     case 4:
+                    // Hiển thị danh sách sinh viên
                         studentManager.Display();
                         break;
                     case 5:
+                    // Tìm kiếm sinh viên
                         Console.WriteLine("1. Search by id");
                         Console.WriteLine("2. Search by name");
                         Console.Write("Choose: ");

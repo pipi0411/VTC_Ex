@@ -28,6 +28,7 @@ namespace QuanLyTruongHoc{
                         LecturerManagement.LecturerManagers(lecturerManager);
                         break;
                     case 3:
+                        SubjectManagement.SubjectManagers(subjectManager);
                         break;
                     case 4:
                         break;

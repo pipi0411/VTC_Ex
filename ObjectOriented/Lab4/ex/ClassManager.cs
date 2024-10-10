@@ -90,4 +90,57 @@ namespace QuanLyTruongHoc{
             return listClasses;
         }
     }
+    public class ClassManagement{
+        public static void ClassManagers(ClassManager classManager){
+            bool isExit = false;
+            while (!isExit){
+                Console.WriteLine("\n--- Class Manager ---");
+                Console.WriteLine("1. Add class");
+                Console.WriteLine("2. Edit class");
+                Console.WriteLine("3. Delete class");
+                Console.WriteLine("4. Add student to class");
+                Console.WriteLine("5. Delete student from class");
+                Console.WriteLine("6. Display class list");
+                Console.WriteLine("7. Search class");
+                Console.WriteLine("8. Exit");
+                Console.Write("Choice: ");
+                int choice = Convert.ToInt32(Console.ReadLine());
+                switch (choice){
+                    case 1:
+                    // Thêm lớp học
+                        Console.Write("Enter class id: ");
+                        string classId = Console.ReadLine();
+                        Console.Write("Enter class name: ");
+                        string className = Console.ReadLine();
+                        Console.Write("Enter lecturer id: ");
+                        string lecturerId = Console.ReadLine();
+                        lecturerId gv = lecturerManager.FindLecturer(lecturerId);
+                        if (gv = null){
+                            Console.WriteLine("Lecturer not found");
+                            break;
+                        }
+                        Class lop = new Class(classId, className, gv);
+                        classManager.AddClass(lop);
+                        break;
+                    case 2:
+                    // Sửa thông tin lớp học
+                        Console.Write("Enter class id: ");
+                        classId = Console.ReadLine();
+                        Console.Write("Enter new class name: ");
+                        string newClassName = Console.ReadLine();
+                        Console.Write("Enter new lecturer id: ");
+                        string newLecturerId = Console.ReadLine();
+                        Lecturer gv = lecturerManager.FindLecturer(newLecturerId);
+                        if (gv == null){
+                            Console.WriteLine("Lecturer not found");
+                            break;
+                        }
+                        classManager.EditClass(classId, newClassName, gv);
+                        break;
+                    case 3:
+
+                }
+            }
+        }
+    }
 }
