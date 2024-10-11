@@ -91,7 +91,7 @@ namespace QuanLyTruongHoc{
         }
     }
     public class ClassManagement{
-        public static void ClassManagers(ClassManager classManager){
+        public static void ClassManagers(ClassManager classManager, LecturerManager lecturerManager, StudentManager studentManager){
             bool isExit = false;
             while (!isExit){
                 Console.WriteLine("\n--- Class Manager ---");
@@ -114,13 +114,13 @@ namespace QuanLyTruongHoc{
                         string className = Console.ReadLine();
                         Console.Write("Enter lecturer id: ");
                         string lecturerId = Console.ReadLine();
-                        lecturerId gv = lecturerManager.FindLecturer(lecturerId);
-                        if (gv = null){
+                        Lecturer gv = lecturerManager.FindLecturer(lecturerId);
+                        if (gv == null){
                             Console.WriteLine("Lecturer not found");
                             break;
                         }
-                        Class lop = new Class(classId, className, gv);
-                        classManager.AddClass(lop);
+                        Class newClass = new Class(classId, className, gv);
+                        classManager.AddClass(newClass);
                         break;
                     case 2:
                     // Sửa thông tin lớp học
@@ -130,14 +130,84 @@ namespace QuanLyTruongHoc{
                         string newClassName = Console.ReadLine();
                         Console.Write("Enter new lecturer id: ");
                         string newLecturerId = Console.ReadLine();
-                        Lecturer gv = lecturerManager.FindLecturer(newLecturerId);
-                        if (gv == null){
+                        Lecturer gvNew = lecturerManager.FindLecturer(newLecturerId);
+                        if (gvNew == null){
                             Console.WriteLine("Lecturer not found");
                             break;
                         }
-                        classManager.EditClass(classId, newClassName, gv);
+                        classManager.EditClass(classId, newClassName, gvNew);
                         break;
                     case 3:
+                        // Xóa lớp học
+                        Console.Write("Enter class id: ");
+                        classId = Console.ReadLine();
+                        classManager.DeleteClass(classId);
+                        break;
+                    case 4:
+                        // Thêm sinh viên vào lớp
+                        Console.Write("Enter class id: ");
+                        classId = Console.ReadLine();
+                        Console.Write("Enter student id: ");
+                        string studentId = Console.ReadLine();
+                        Student students = studentManager.FindStudent(studentId);
+                        if (students == null){
+                            Console.WriteLine("Student not found");
+                            return;
+                        }
+                        classManager.AddStudentToClass(classId, students);
+                        break;
+                    case 5:
+                        // Xóa sinh viên khỏi lớp
+                        Console.Write("Enter class id: ");
+                        classId = Console.ReadLine();
+                        Console.Write("Enter student id: ");
+                        studentId = Console.ReadLine();
+                        classManager.DeleteStudentFromClass(classId, studentId);
+                        break;
+                    case 6:
+                        // Hiển thị danh sách lớp học
+                        classManager.Display();
+                        break;
+                    case 7:
+                        // Tìm kiếm lớp học
+                        Console.WriteLine("1. Search by class id");
+                        Console.WriteLine("2. Search by class name");
+                        Console.WriteLine("Choose a function: ");
+                        int searchChoice = Convert.ToInt32(Console.ReadLine());
+                        switch (searchChoice){
+                            case 1:
+                            Console.Write("Enter class id: ");
+                            classId = Console.ReadLine();
+                            Class foundClass = classManager.FindClass(classId);
+                            if (foundClass != null){
+                                foundClass.Display();
+                            }else{
+                                Console.WriteLine("Class not found");
+                            }
+                            break;
+                            case 2:
+                            Console.Write("Enter class name: ");
+                            className = Console.ReadLine();
+                            List<Class> listClasses = classManager.SearchClass(className);
+                            if (listClasses.Count > 0){
+                                foreach (var classItem in listClasses){
+                                    classItem.Display();
+                                }
+                            }else{
+                                Console.WriteLine("Class not found");
+                            }
+                            break;
+                            default:
+                            Console.WriteLine("Invalid choice");
+                            break;
+                        }
+                        break;
+                    case 8:
+                        isExit = true;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice");
+                        break;
 
                 }
             }

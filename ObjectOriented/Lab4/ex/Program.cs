@@ -11,14 +11,14 @@ namespace QuanLyTruongHoc{
 
             bool isExit = false;
             while (!isExit){
-                Console.WriteLine("\n--- Hệ Thống Quản Lý Trường Học ---");
-                Console.WriteLine("1. Quản lý sinh viên");
-                Console.WriteLine("2. Quản lý giảng viên");
-                Console.WriteLine("3. Quản lý môn học");
-                Console.WriteLine("4. Quản lý lớp học");
-                Console.WriteLine("5. Quản lý điểm");
-                Console.WriteLine("6. Thoát");
-                Console.Write("Chọn chức năng: ");
+                Console.WriteLine("\n--- School Management System  ---");
+                Console.WriteLine("1. Stutdent Management");
+                Console.WriteLine("2. Lecturer Management");
+                Console.WriteLine("3. Subject Management");
+                Console.WriteLine("4. Class Management");
+                Console.WriteLine("5. Grade Management");
+                Console.WriteLine("6. Exit");
+                Console.Write("Select function: ");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice){
                     case 1:
@@ -31,8 +31,10 @@ namespace QuanLyTruongHoc{
                         SubjectManagement.SubjectManagers(subjectManager);
                         break;
                     case 4:
+                        ClassManagement.ClassManagers(classManager, lecturerManager, studentManager);
                         break;
                     case 5:
+                        GradeManagement.GradeManagers(gradeManager, studentManager, subjectManager);
                         break;
                     case 6:
                         isExit = true;
