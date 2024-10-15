@@ -127,21 +127,96 @@ using System.Collections;
 
 // Mô Tả:
 // Tạo một `ArrayList` chứa các số ngẫu nhiên. Sắp xếp danh sách theo thứ tự tăng dần và in ra kết quả.
-class EX5{
-    static void Main(string[] args){
-        // Khởi tạo một ArrayList
-        ArrayList numbers = new ArrayList() {75, 45, 12, 56};
-        Console.WriteLine("Danh sách trước khi sắp xếp: ");
-        PrintArrayList(numbers);
-        // sắp xếp danh sách
-        numbers.Sort();
-        Console.WriteLine("Danh sách sau khi sắp xếp: ");
-        PrintArrayList(numbers);
-    }
-    static void PrintArrayList(ArrayList list){
-        foreach (int number in list){
-            Console.Write(number + " ");
-        }
-        Console.WriteLine();
-    }
-}
+// class EX5{
+//     static void Main(string[] args){
+//         // Khởi tạo một ArrayList
+//         ArrayList numbers = new ArrayList() {75, 45, 12, 56};
+//         Console.WriteLine("Danh sách trước khi sắp xếp: ");
+//         PrintArrayList(numbers);
+//         // sắp xếp danh sách
+//         numbers.Sort();
+//         Console.WriteLine("Danh sách sau khi sắp xếp: ");
+//         PrintArrayList(numbers);
+//     }
+//     static void PrintArrayList(ArrayList list){
+//         foreach (int number in list){
+//             Console.Write(number + " ");
+//         }
+//         Console.WriteLine();
+//     }
+// }
+
+// #Bài 6: Loại Bỏ Phần Tử Trùng Lặp
+
+// Mô Tả:
+// Tạo một `ArrayList` chứa các số có thể trùng lặp. Viết chương trình loại bỏ các phần tử trùng lặp và in danh sách kết quả.
+// class Ex6{
+//     static void Main(string[] args){
+//         // Khởi tạo một ArrayList
+//         ArrayList numbers = new ArrayList() {75, 45, 12, 56, 75, 45, 12, 56};
+//         Console.WriteLine("Danh sách trước khi loại bỏ: ");
+//         PrintArrayList(numbers);
+//         // Loại bỏ phần tử trùng lặp
+//         HashSet<int> uniqueNumbers = new HashSet<int>(); // Tạo một HashSet để lưu các số duy nhất
+//         ArrayList distinctNumbers = new ArrayList(); // Tạo một ArrayList để lưu các số không trùng lặp
+
+//         foreach (int number in numbers){
+//             if (uniqueNumbers.Add(number)){ // Nếu thêm thành công thì số đó chưa tồn tại
+//                 distinctNumbers.Add(number); // Thêm số vào danh sách không trùng lặp
+//             }
+//         }
+//         Console.WriteLine("Danh sách sau khi loại bỏ: ");
+//         PrintArrayList(distinctNumbers);
+//     }
+//     static void PrintArrayList(ArrayList list){
+//         {
+//             foreach (int number in list){
+//                 Console.Write(number + " ");
+//             }
+//             Console.WriteLine();
+//         }
+//     }
+// }
+
+// #Bài 7: Đảo Ngược `ArrayList`
+
+// Mô Tả:
+// Tạo một `ArrayList` chứa các từ trong một câu. Đảo ngược thứ tự các từ và in ra câu mới.
+
+// Nội Dung Học Được:
+// - Sử dụng `HashSet` để loại bỏ các phần tử trùng lặp.
+// - Hiểu cách `HashSet` chỉ giữ lại các phần tử duy nhất.
+// - Sử dụng `HashSet.Add` để thêm phần tử vào `HashSet` và trả về `true` nếu phần tử chưa tồn tại, ngược lại trả về `false`.
+// class Ex7{
+//     static void Main(string[] args){
+//         // Khởi tạo một câu
+//         string sentence = "I'm learning programming with C#";
+//         // Tách các từ trong câu
+//         ArrayList words = new ArrayList(sentence.Split(' ')); // Tách câu thành các từ và thêm vào ArrayList, dùng dấu cách làm điểm tách
+//         Console.WriteLine("Câu trước khi đảo ngược: ");
+//         PrintArrayList(words);
+
+//         // Đảo ngược thứ tự các từ
+//         words.Reverse();
+//         // Nối các từ lại thành câu mới
+//         string reversedSentence = string.Join(" ", (string[])words.ToArray(typeof(string)));
+//         Console.WriteLine("Câu sau khi đảo ngược: ");
+//         Console.WriteLine(reversedSentence);
+//     }
+//     static void PrintArrayList(ArrayList list){
+//         foreach (var word in list){
+//             Console.Write(word + " ");
+//         }
+//         Console.WriteLine();
+//     }
+// }
+
+// Nội Dung Học Được:
+// - Sử dụng phương thức `Reverse` để đảo ngược thứ tự các phần tử trong `ArrayList`.
+// - Chuyển đổi `ArrayList` thành mảng và sử dụng `string.Join` để nối các phần tử lại thành chuỗi.
+// - Hiểu cách sử dụng `string.Join` để nối các phần tử trong mảng thành một chuỗi.
+
+// #Bài 8: Chèn Phần Tử Vào Vị Trí Cụ Thể
+
+// Mô Tả:
+// Tạo một `ArrayList` chứa các ngày trong tuần. Yêu cầu người dùng nhập một ngày mới và vị trí muốn chèn, sau đó in danh sách cập nhật.
