@@ -145,78 +145,155 @@ using System.Collections;
 //         Console.WriteLine();
 //     }
 // }
+// Nội Dung Học Được:
+// - Sử dụng phương thức `Sort` để sắp xếp các phần tử trong `ArrayList`.
+// - Hiểu cách `Sort` hoạt động với các phần tử kiểu `int`.
 
-// #Bài 6: Loại Bỏ Phần Tử Trùng Lặp
-
-// Mô Tả:
-// Tạo một `ArrayList` chứa các số có thể trùng lặp. Viết chương trình loại bỏ các phần tử trùng lặp và in danh sách kết quả.
-// class Ex6{
+// ### Bài 1: Tạo và In `Stack`
+  
+//  Mô Tả:
+// Tạo một `Stack` chứa các tên của 5 màu sắc yêu thích và in ra danh sách các màu sắc theo thứ tự từ trên xuống dưới.
+// class ExStack1{
 //     static void Main(string[] args){
-//         // Khởi tạo một ArrayList
-//         ArrayList numbers = new ArrayList() {75, 45, 12, 56, 75, 45, 12, 56};
-//         Console.WriteLine("Danh sách trước khi loại bỏ: ");
-//         PrintArrayList(numbers);
-//         // Loại bỏ phần tử trùng lặp
-//         HashSet<int> uniqueNumbers = new HashSet<int>(); // Tạo một HashSet để lưu các số duy nhất
-//         ArrayList distinctNumbers = new ArrayList(); // Tạo một ArrayList để lưu các số không trùng lặp
-
-//         foreach (int number in numbers){
-//             if (uniqueNumbers.Add(number)){ // Nếu thêm thành công thì số đó chưa tồn tại
-//                 distinctNumbers.Add(number); // Thêm số vào danh sách không trùng lặp
-//             }
+//         // Khởi tạo một Stack
+//         Stack colors = new Stack();
+//         // Thêm các màu sắc yêu thích vào Stack
+//         colors.Push("Red");
+//         colors.Push("Green");
+//         colors.Push("Blue");
+//         colors.Push("Yellow");
+//         colors.Push("Purple");
+//         // In ra danh sách các màu sắc
+//         Console.WriteLine("List of colors:");
+//         foreach (string color in colors){
+//             Console.WriteLine(color);
 //         }
-//         Console.WriteLine("Danh sách sau khi loại bỏ: ");
-//         PrintArrayList(distinctNumbers);
 //     }
-//     static void PrintArrayList(ArrayList list){
-//         {
-//             foreach (int number in list){
-//                 Console.Write(number + " ");
-//             }
-//             Console.WriteLine();
+// }
+//  Nội Dung Học Được:
+// - Cách khởi tạo `Stack`.
+// - Sử dụng phương thức `Push` để thêm phần tử vào `Stack`.
+// - Duyệt và in các phần tử trong `Stack` bằng vòng lặp `foreach`.
+
+// ### Bài 2: Thêm và Lấy Phần Tử
+  
+//  Mô Tả:
+// Tạo một `Stack` chứa các số từ 1 đến 5. Thêm số 6 vào `Stack`, sau đó lấy phần tử trên cùng ra và in ra.
+// class ExStack2{
+//     static void Main(string[] args){
+//         // Khởi tạo một Stack
+//         Stack numbers = new Stack();
+//         // Thêm các số từ 1 đến 5 vào Stack
+//         for (int i = 1; i <= 5; i++){
+//             numbers.Push(i);
+//         }
+//         // Thêm số 6 vào Stack
+//         numbers.Push(6);
+//         Console.WriteLine("Sau khi thêm số 6:");
+//         // In ra các phần tử trong Stack
+//         PrintStack(numbers);
+//         // Lấy phần tử trên cùng ra khỏi Stack
+//         int top = (int)numbers.Pop();
+//         Console.WriteLine("\nPhần tử trên cùng: {0}", top);
+//         // In ra các phần tử trong Stack sau khi lấy phần tử trên cùng ra
+//         Console.WriteLine("Sau khi lấy phần tử trên cùng ra:");
+//         PrintStack(numbers);
+//     }
+//     static void PrintStack(Stack stack){
+//         foreach (int number in stack){
+//             Console.Write(number + " ");
 //         }
 //     }
 // }
 
-// #Bài 7: Đảo Ngược `ArrayList`
+//  Nội Dung Học Được:
+// - Sử dụng phương thức `Push` để thêm phần tử vào `Stack`.
+// - Sử dụng phương thức `Pop` để lấy và loại bỏ phần tử trên cùng của `Stack`.
+// - Hiểu cách `Stack` hoạt động theo nguyên tắc LIFO (Last-In, First-Out).
 
-// Mô Tả:
-// Tạo một `ArrayList` chứa các từ trong một câu. Đảo ngược thứ tự các từ và in ra câu mới.
-
-// Nội Dung Học Được:
-// - Sử dụng `HashSet` để loại bỏ các phần tử trùng lặp.
-// - Hiểu cách `HashSet` chỉ giữ lại các phần tử duy nhất.
-// - Sử dụng `HashSet.Add` để thêm phần tử vào `HashSet` và trả về `true` nếu phần tử chưa tồn tại, ngược lại trả về `false`.
-// class Ex7{
+// ### Bài 3: Kiểm Tra Phần Tử trên Đỉnh Stack
+  
+//  Mô Tả:
+// Tạo một `Stack` chứa các từ trong một câu. Sử dụng phương thức `Peek` để kiểm tra phần tử trên cùng mà không loại bỏ nó, sau đó in toàn bộ `Stack`.
+// class ExStack3{
 //     static void Main(string[] args){
-//         // Khởi tạo một câu
-//         string sentence = "I'm learning programming with C#";
-//         // Tách các từ trong câu
-//         ArrayList words = new ArrayList(sentence.Split(' ')); // Tách câu thành các từ và thêm vào ArrayList, dùng dấu cách làm điểm tách
-//         Console.WriteLine("Câu trước khi đảo ngược: ");
-//         PrintArrayList(words);
-
-//         // Đảo ngược thứ tự các từ
-//         words.Reverse();
-//         // Nối các từ lại thành câu mới
-//         string reversedSentence = string.Join(" ", (string[])words.ToArray(typeof(string)));
-//         Console.WriteLine("Câu sau khi đảo ngược: ");
-//         Console.WriteLine(reversedSentence);
+//         // Khởi tạo một Stack
+//         Stack words = new Stack();
+//         // Thêm các từ vào Stack
+//         words.Push("Hello");
+//         words.Push("World");
+//         words.Push("C#");
+//         // Kiểm tra phần tử trên cùng
+//         string top = (string)words.Peek();
+//         Console.WriteLine("Phần tử trên cùng: {0}", top);
+//         // In ra các phần tử trong Stack
+//         Console.WriteLine("Stack:");
+//         PrintStack(words);
 //     }
-//     static void PrintArrayList(ArrayList list){
-//         foreach (var word in list){
-//             Console.Write(word + " ");
+//     static void PrintStack(Stack stack){
+//         foreach (string word in stack){
+//             Console.WriteLine(word);
+//         }
+//     }
+// }
+//  Nội Dung Học Được:
+// - Sử dụng phương thức `Peek` để xem phần tử trên cùng của `Stack` mà không loại bỏ nó.
+// - Hiểu cách duyệt và in các phần tử trong `Stack`.
+
+
+// ### Bài 4: Kiểm Tra Stack Rỗng
+  
+//  Mô Tả:
+// Tạo một `Stack`, kiểm tra xem nó có rỗng không, thêm một phần tử vào `Stack`, sau đó kiểm tra lại.
+// class ExStack4{
+//     static void Main(string[] args){
+//         // Khởi tạo một Stack
+//         Stack stack = new Stack();
+//         // Kiểm tra Stack rỗng
+//         Console.WriteLine("Stack rỗng ban đầu: {0}", stack.Count == 0 ? "Có" : "Không");
+//         // Thêm một phần tử vào Stack
+//         stack.Push("Hello");
+//         // Kiểm tra Stack rỗng
+//         Console.WriteLine("Stack rỗng sau khi thêm: {0}", stack.Count == 0 ? "Có" : "Không");
+//     }
+// }
+//  Nội Dung Học Được:
+// - Sử dụng thuộc tính `Count` để kiểm tra số lượng phần tử trong `Stack`.
+// - Hiểu cách kiểm tra `Stack` có rỗng hay không.
+
+
+// ### Bài 5: Sắp Xếp `Stack`
+  
+//  Mô Tả:
+// Tạo một `Stack` chứa các số ngẫu nhiên. Sắp xếp `Stack` theo thứ tự tăng dần và in ra kết quả.
+// class ExStack5{
+//     static void Main(string[] args){
+//         // Khởi tạo một Stack
+//         Stack numbers = new Stack();
+//         // Thêm các số ngẫu nhiên vào Stack
+//         numbers.Push(75);
+//         numbers.Push(45);
+//         numbers.Push(12);
+//         numbers.Push(56);
+//         Console.WriteLine("Danh sách trước khi sắp xếp: ");
+//         PrintStack(numbers);
+//         // Sắp xếp Stack
+//         ArrayList sortedList = new ArrayList(numbers);
+//         sortedList.Sort();
+
+//         // Tạo một Stack mới từ ArrayList đã sắp xếp
+//         Stack sortedStack = new Stack(sortedList);
+//         Console.WriteLine("Danh sách sau khi sắp xếp: ");
+//         PrintStack(sortedStack);
+//     }
+//     static void PrintStack(Stack stack){
+//         foreach (int number in stack){
+//             Console.Write(number + " ");
 //         }
 //         Console.WriteLine();
 //     }
 // }
-
-// Nội Dung Học Được:
-// - Sử dụng phương thức `Reverse` để đảo ngược thứ tự các phần tử trong `ArrayList`.
-// - Chuyển đổi `ArrayList` thành mảng và sử dụng `string.Join` để nối các phần tử lại thành chuỗi.
-// - Hiểu cách sử dụng `string.Join` để nối các phần tử trong mảng thành một chuỗi.
-
-// #Bài 8: Chèn Phần Tử Vào Vị Trí Cụ Thể
-
-// Mô Tả:
-// Tạo một `ArrayList` chứa các ngày trong tuần. Yêu cầu người dùng nhập một ngày mới và vị trí muốn chèn, sau đó in danh sách cập nhật.
+//  Nội Dung Học Được:
+// - Chuyển đổi `Stack` thành `ArrayList` để có thể sắp xếp các phần tử.
+// - Sử dụng phương thức `Sort` của `ArrayList` để sắp xếp các phần tử.
+// - Tạo `Stack` mới từ `ArrayList` đã sắp xếp.

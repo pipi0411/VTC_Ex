@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\objectOriented\\lab5\\ex1\\ex1.csproj": {}
+    "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\objectOriented\\lab6\\ex2\\ex2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\objectOriented\\lab5\\ex1\\ex1.csproj": {
+    "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\objectOriented\\lab6\\ex2\\ex2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\objectOriented\\lab5\\ex1\\ex1.csproj",
-        "projectName": "ex1",
-        "projectPath": "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\objectOriented\\lab5\\ex1\\ex1.csproj",
+        "projectUniqueName": "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\objectOriented\\lab6\\ex2\\ex2.csproj",
+        "projectName": "ex2",
+        "projectPath": "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\objectOriented\\lab6\\ex2\\ex2.csproj",
         "packagesPath": "C:\\Users\\pipi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\objectOriented\\lab5\\ex1\\obj\\",
+        "outputPath": "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\objectOriented\\lab6\\ex2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pipi\\AppData\\Roaming\\NuGet\\NuGet.Config"
