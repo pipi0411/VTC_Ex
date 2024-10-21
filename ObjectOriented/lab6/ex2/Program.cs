@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 class Ex1{
-    static void Main(string[], agrs){
+    static void Main(string[] agrs){
         //  1. HashTable - Thêm và Xóa Phần Tử
         Hashtable student = new Hashtable();
         student.Add("1", "Nguyen Van A");
@@ -58,17 +58,17 @@ products["1"] = "Iphone 13";
 Console.WriteLine("Updated product: " + products["1"]);
 //Nội dung học được: Cách cập nhật giá trị của một khóa trong `HashTable`.
 //  10. HashTable - Xóa Khóa
-prodcucts.Remove("1");
+products.Remove("1");
 Console.WriteLine(products.ContainsKey("1") ? "Exists" : "Dose not exist");
 // Nội dung học được: Cách xóa một khóa và kiểm tra sự tồn tại của nó trong `HashTable`.
 
     }
 }
 
-//  11. SortedList - Thêm Phần Tử
-SortedList<int , string> cities = new SortedList<int, string>();
-cities.Add(1, "Ha Noi");
-// Nội dung học được: Cách thêm các phần tử vào `SortedList` và tự động sắp xếp theo khóa.
-//12. SortedList - Xóa Phần Tử
-cities.Remove(1);
-// Nội dung học được: Cách xóa một phần tử trong `SortedList`.
+// //  11. SortedList - Thêm Phần Tử
+// SortedList<int , string> cities = new SortedList<int, string>();
+// cities.Add(1, "Ha Noi");
+// // Nội dung học được: Cách thêm các phần tử vào `SortedList` và tự động sắp xếp theo khóa.
+// //12. SortedList - Xóa Phần Tử
+// cities.Remove(1);
+// // Nội dung học được: Cách xóa một phần tử trong `SortedList`.
