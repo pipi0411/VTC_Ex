@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\VTC_Ex\\Ex2_02_0208\\objectOriented\\ass\\InventoryManager\\InventoryManager.csproj": {}
+    "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\ObjectOriented\\Ass\\inventoryManager\\InventoryManager.csproj": {}
   },
   "projects": {
-    "D:\\VTC_Ex\\Ex2_02_0208\\objectOriented\\ass\\InventoryManager\\InventoryManager.csproj": {
+    "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\ObjectOriented\\Ass\\inventoryManager\\InventoryManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VTC_Ex\\Ex2_02_0208\\objectOriented\\ass\\InventoryManager\\InventoryManager.csproj",
+        "projectUniqueName": "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\ObjectOriented\\Ass\\inventoryManager\\InventoryManager.csproj",
         "projectName": "InventoryManager",
-        "projectPath": "D:\\VTC_Ex\\Ex2_02_0208\\objectOriented\\ass\\InventoryManager\\InventoryManager.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\VTC_Ex\\Ex2_02_0208\\objectOriented\\ass\\InventoryManager\\obj\\",
+        "projectPath": "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\ObjectOriented\\Ass\\inventoryManager\\InventoryManager.csproj",
+        "packagesPath": "C:\\Users\\pipi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\ObjectOriented\\Ass\\inventoryManager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\pipi\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"

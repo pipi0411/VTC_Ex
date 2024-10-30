@@ -5,7 +5,7 @@ namespace InventoryManager{
     // Lớp Order
     public class Order{
         public int OrderId { get; set; }
-        public Product Product { get; private set; }
+        public Product? Product { get; private set; }
         public int Quantity { get; private set; }
         // Tạo đơn hàng mới 
         public bool CreadOrder(Product product, int quantity){

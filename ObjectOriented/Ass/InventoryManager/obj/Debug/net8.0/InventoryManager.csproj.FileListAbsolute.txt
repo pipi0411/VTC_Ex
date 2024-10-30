@@ -1,0 +1,15 @@
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\Ass\inventoryManager\obj\Debug\net8.0\InventoryManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\Ass\inventoryManager\obj\Debug\net8.0\InventoryManager.AssemblyInfoInputs.cache
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\Ass\inventoryManager\obj\Debug\net8.0\InventoryManager.AssemblyInfo.cs
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\Ass\inventoryManager\obj\Debug\net8.0\InventoryManager.csproj.CoreCompileInputs.cache
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\Ass\inventoryManager\obj\Debug\net8.0\InventoryManager.sourcelink.json
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\Ass\inventoryManager\bin\Debug\net8.0\InventoryManager.exe
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\Ass\inventoryManager\bin\Debug\net8.0\InventoryManager.deps.json
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\Ass\inventoryManager\bin\Debug\net8.0\InventoryManager.runtimeconfig.json
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\Ass\inventoryManager\bin\Debug\net8.0\InventoryManager.dll
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\Ass\inventoryManager\bin\Debug\net8.0\InventoryManager.pdb
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\Ass\inventoryManager\obj\Debug\net8.0\InventoryManager.dll
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\Ass\inventoryManager\obj\Debug\net8.0\refint\InventoryManager.dll
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\Ass\inventoryManager\obj\Debug\net8.0\InventoryManager.pdb
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\Ass\inventoryManager\obj\Debug\net8.0\InventoryManager.genruntimeconfig.cache
+C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\Ass\inventoryManager\obj\Debug\net8.0\ref\InventoryManager.dll

@@ -50,7 +50,7 @@ namespace InventoryManager{
         }
         // Tìm sản phẩm theo mã sản phẩm
         public Product FindProduct(int productId){
-            return listProducts.FirstOrDefault(product => product.ProductId.Equals(productId, StringComparison.OrdinalIgnoreCase));
+            return listProducts.FirstOrDefault(product => product.ProductId == productId);
         }
         // Tìm sản phẩm theo tên sản phẩm
         public List<Product> SearchProduct(string productName){
