@@ -6,6 +6,12 @@ namespace InventoryManager{
     // Lớp Inventory
     public class Inventory{
         private List<Product> listProducts = new List<Product>();
+        private readonly InventoryRepository _inventoryRepository; // thêm biến để lưu InventoryRepository
+
+        // Constructor nhan tham so InventoryRepository
+        public Inventory(InventoryRepository inventoryRepository){
+            _inventoryRepository = inventoryRepository;
+        }
         // Thêm sản phẩm
         public void AddProduct(Product product){
             if (product == null){
