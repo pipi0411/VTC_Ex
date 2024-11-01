@@ -11,54 +11,132 @@ namespace InventoryManager{
             _inventoryReponsitory = inventoryReponsitory;
         }
        // Vòng lặp chính để chạy ứng dụng quản lý kho.
-        public void Run(){
-            while(true){
-                DisplayMenu();  // Hiển thị các tùy chọn cho người dùng.
-                var choice = Console.ReadLine(); // Đọc đầu vào của người dùng cho lựa chọn menu.
-                // Câu lệnh switch để xử lý lựa chọn của người dùng.
-                switch(choice){
+        public void Run()
+        {
+            while (true)
+            {
+                DisplayMainMenu(); // Display the main menu
+                var choice = Console.ReadLine();
+                switch (choice)
+                {
                     case "1":
-                        AddProduct(); // Thêm sản phẩm.
+                        InventoryMenu(); // Go to Inventory menu
                         break;
                     case "2":
-                        UpdateProduct(); // Cập nhật thông tin sản phẩm.
+                        OrderMenu(); // Go to Order menu
                         break;
                     case "3":
-                        DeleteProduct(); // Xóa sản phẩm.
-                        break;
-                    case "4":
-                        DisplayInventory(); // Hiển thị danh sách sản phẩm trong kho.
-                        break;
-                    case "5":
-                        SearchProduct(); // Tìm kiếm sản phẩm theo tên.
-                        break;
-                    case "6":
-                        CheckLowStock(); // Kiểm tra các sản phẩm dưới ngưỡng tồn kho.
-                        break;
-                    case "7":
-                        CreateOrder(); // Tạo một đơn hàng mới cho một sản phẩm.
+                        ReportMenu(); // Go to Report menu
                         break;
                     case "0":
-                        Console.WriteLine("Exiting..."); // Thoát ứng dụng.
+                        Console.WriteLine("Exiting...");
                         return;
                     default:
-                        Console.WriteLine("Invalid choice. Try again."); // Xử lý đầu vào không hợp lệ.
+                        Console.WriteLine("Invalid choice. Try again.");
                         break;
                 }
             }
         }
         // Hiển thị menu chính cho người dùng.
-        private void DisplayMenu(){
-            Console.WriteLine("---Inventory Management System---");
-            Console.WriteLine("1. Add Product");
-            Console.WriteLine("2. Update Product");
-            Console.WriteLine("3. Delete Product");
-            Console.WriteLine("4. Display Inventory");
-            Console.WriteLine("5. Search Product");
-            Console.WriteLine("6. Check Low Stock");
-            Console.WriteLine("7. Create Order");
+       private void DisplayMainMenu()
+        {
+            Console.WriteLine("--- Inventory Management System ---");
+            Console.WriteLine("1. Inventory");
+            Console.WriteLine("2. Order");
+            Console.WriteLine("3. Report");
             Console.WriteLine("0. Exit");
             Console.Write("Choose an option: ");
+        }
+        // Hiện thị menu kho
+        private void InventoryMenu()
+        {
+            while (true)
+            {
+                Console.WriteLine("--- Inventory Menu ---");
+                Console.WriteLine("1. Add Product");
+                Console.WriteLine("2. Update Product");
+                Console.WriteLine("3. Delete Product");
+                Console.WriteLine("4. Display Inventory");
+                Console.WriteLine("5. Search Product");
+                Console.WriteLine("6. Check Low Stock");
+                Console.WriteLine("0. Back to Main Menu");
+                Console.Write("Choose an option: ");
+                var choice = Console.ReadLine();
+                
+                switch (choice)
+                {
+                    case "1":
+                        AddProduct();
+                        break;
+                    case "2":
+                        UpdateProduct();
+                        break;
+                    case "3":
+                        DeleteProduct();
+                        break;
+                    case "4":
+                        DisplayInventory();
+                        break;
+                    case "5":
+                        SearchProduct();
+                        break;
+                    case "6":
+                        CheckLowStock();
+                        break;
+                    case "0":
+                        return; // Back to Main Menu
+                    default:
+                        Console.WriteLine("Invalid choice. Try again.");
+                        break;
+                }
+            }
+        }
+         private void OrderMenu()
+        {
+            while (true)
+            {
+                Console.WriteLine("--- Order Menu ---");
+                Console.WriteLine("1. Create Order");
+                Console.WriteLine("0. Back to Main Menu");
+                Console.Write("Choose an option: ");
+                var choice = Console.ReadLine();
+
+                switch (choice)
+                {
+                    case "1":
+                        CreateOrder();
+                        break;
+                    case "0":
+                        return; // Back to Main Menu
+                    default:
+                        Console.WriteLine("Invalid choice. Try again.");
+                        break;
+                }
+            }
+        }
+
+        private void ReportMenu()
+        {
+            while (true)
+            {
+                Console.WriteLine("--- Report Menu ---");
+                Console.WriteLine("1. Generate Inventory Report");
+                Console.WriteLine("0. Back to Main Menu");
+                Console.Write("Choose an option: ");
+                var choice = Console.ReadLine();
+
+                switch (choice)
+                {
+                    case "1":
+                        // GenerateInventoryReport(); // Placeholder for report generation logic
+                        break;
+                    case "0":
+                        return; // Back to Main Menu
+                    default:
+                        Console.WriteLine("Invalid choice. Try again.");
+                        break;
+                }
+            }
         }
 
         // Thêm sản phẩm vào kho.
