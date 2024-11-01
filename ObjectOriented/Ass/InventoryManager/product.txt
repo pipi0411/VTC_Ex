@@ -2,3 +2,14 @@
 3,Iphone XS,15000000,5
 4,Samsung,13000000,5
 1,Iphone,9000000,3
+5,Laptop,10000000,10
+6,Mouse,200000,20
+7,Keyboard,500000,15
+8,Monitor,3000000,5
+9,Printer,1500000,8
+10,USB Drive,150000,50
+11,Webcam,800000,12
+12,Headphones,600000,25
+13,Smartphone,8000000,7
+14,Tablet,5000000,3
+15,Galasy,16000000,5
