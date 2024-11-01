@@ -54,7 +54,8 @@ namespace InventoryManager{
             }
             else
             {
-                foreach (var product in products)
+                var sortedProducts = products.OrderBy(p => p.ProductId);
+                foreach (var product in sortedProducts)
                 {
                     product.Display();
                 }
