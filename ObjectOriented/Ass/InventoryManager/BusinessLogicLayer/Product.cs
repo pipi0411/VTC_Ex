@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 
 namespace InventoryManager{
     // Lớp Product
@@ -16,7 +17,8 @@ namespace InventoryManager{
         }
         // Hiển thị thông tin sản phẩm
         public void Display(){
-            Console.WriteLine($"Product ID: {ProductId}, Product Name: {ProductName}, Price: {Price}, Quantity: {Quantity}");
+            string format = Price.ToString("C", new CultureInfo("vi-VN"));
+            Console.WriteLine($"Product ID: {ProductId}, Product Name: {ProductName}, Price: {format}, Quantity: {Quantity}");
         }
     }
 }

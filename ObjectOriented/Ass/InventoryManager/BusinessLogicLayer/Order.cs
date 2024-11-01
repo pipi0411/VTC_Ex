@@ -7,6 +7,13 @@ namespace InventoryManager{
         public int OrderId { get; set; }
         public Product? Product { get; private set; }
         public int Quantity { get; private set; }
+
+        private readonly InventoryRepository _inventoryRepository; // Thêm biến lưu InventoryRepository
+        // Constructor nhận InventoryRepository để cập nhật file
+        public Order(InventoryRepository inventoryRepository)
+        {
+            _inventoryRepository = inventoryRepository;
+        }
         // Tạo đơn hàng mới 
         public bool CreadOrder(Product product, int quantity){
             if (!ValidateStock(product, quantity)){
@@ -16,6 +23,8 @@ namespace InventoryManager{
             Product = product;
             Quantity = quantity;
             product.Quantity -= quantity; // Giảm số lượng tồn kho
+            // Gọi phương thức cập nhật để ghi thay đổi vào file
+            _inventoryRepository.Update(product);
             Console.WriteLine("Create order successfully");
             return true;
         }

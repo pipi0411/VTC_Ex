@@ -5,7 +5,6 @@ using System.Linq;
 namespace InventoryManager{
     // Lớp Inventory
     public class Inventory{
-        private List<Product> listProducts = new List<Product>();
         private readonly InventoryRepository _inventoryRepository; // thêm biến để lưu InventoryRepository
 
         // Constructor nhan tham so InventoryRepository
@@ -18,17 +17,18 @@ namespace InventoryManager{
                 Console.WriteLine("Product cannot be null.");
                 return;
             }
-            listProducts.Add(product);
+            _inventoryRepository.Add(product);
             Console.WriteLine("Add product successfully");
         }
 
         // Cập nhật thông tin sản phẩm
         public void UpdateProduct(int productId, string productName, double price, int quantity){
-            Product pt = FindProduct(productId);
+            Product pt = _inventoryRepository.FindProduct(productId);
             if (pt != null){
                 pt.ProductName = productName;
                 pt.Price = price;
                 pt.Quantity = quantity;
+                _inventoryRepository.Update(pt);
                 Console.WriteLine("Update product successfully");
             }else{
                 Console.WriteLine("Product not found");
@@ -38,33 +38,41 @@ namespace InventoryManager{
         public void DeleteProduct(int productId){
             Product pt = FindProduct(productId);
             if (pt != null){
-                listProducts.Remove(pt);
+                _inventoryRepository.Delete(productId);
                 Console.WriteLine("Delete product successfully");
             }else {
                 Console.WriteLine("Product not found");
             }
         }
-        // Hiển thị danh sách sản phẩm
-        public void Display(){
-            if (listProducts.Count == 0){
+         // Hiển thị danh sách sản phẩm
+        public void Display()
+        {
+            var products = _inventoryRepository.GetAllProducts();
+            if (products.Count == 0)
+            {
                 Console.WriteLine("No products available.");
-            }else {
-                foreach (var product in listProducts){
+            }
+            else
+            {
+                foreach (var product in products)
+                {
                     product.Display();
                 }
             }
         }
         // Tìm sản phẩm theo mã sản phẩm
         public Product FindProduct(int productId){
-            return listProducts.FirstOrDefault(product => product.ProductId == productId);
+            return _inventoryRepository.FindProduct(productId);
         }
         // Tìm sản phẩm theo tên sản phẩm
         public List<Product> SearchProduct(string productName){
-            return listProducts.Where(product => product.ProductName.IndexOf(productName, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+            return _inventoryRepository.GetAllProducts()
+                .FindAll(product => product.ProductName.IndexOf(productName, StringComparison.OrdinalIgnoreCase) >= 0);
+        
         }
         // Lấy danh sách sản phẩm có số lượng tồn kho thấp
         public List<Product> GetLowStockProducts(int threshold){
-            return listProducts.Where(product => product.Quantity < threshold).ToList();
+            return _inventoryRepository.GetLowStockProducts(threshold);
         }
     }
 }

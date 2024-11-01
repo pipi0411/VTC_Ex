@@ -2,10 +2,13 @@ using System;
 namespace InventoryManager{
     public class InventoryApp{
         // Lưu trữ thể hiện của Inventory để quản lý sản phẩm.
-        private readonly Inventory _inventory;
+        private readonly Inventory _inventory; // Thêm biến lưu Inventory
+        private readonly InventoryRepository _inventoryReponsitory; // Thêm biến lưu InventoryRepository
+
          // Constructor để khởi tạo InventoryApp với một thể hiện Inventory.
-        public InventoryApp(Inventory inventory){
+        public InventoryApp(Inventory inventory, InventoryRepository inventoryReponsitory){
             _inventory = inventory;
+            _inventoryReponsitory = inventoryReponsitory;
         }
        // Vòng lặp chính để chạy ứng dụng quản lý kho.
         public void Run(){
@@ -139,11 +142,11 @@ namespace InventoryManager{
                 Console.WriteLine("Product not found");
                 return;
             }
-            var order = new Order(); // Tạo một đơn hàng mới.
+            var order = new Order(_inventoryReponsitory); // Khởi tạo với InventoryRepository
             bool orderCreated = order.CreadOrder(product, quantity);
             if (orderCreated)
             {
-                Console.WriteLine("Order created successfully. {quantity} {product.ProductName} ordered."); // Hiển thị thông báo đơn hàng đã được tạo.
+                Console.WriteLine($"Order created successfully. {quantity} of {product.ProductName} ordered."); // Hiển thị thông báo đơn hàng đã được tạo.
             }
             else
             {

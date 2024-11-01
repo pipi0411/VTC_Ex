@@ -10,7 +10,7 @@ namespace InventoryManager{
         public ProductRepository(string filePath){
             _filePath = filePath;
             if (!File.Exists(_filePath)){
-                File.Create(_filePath).Dispose(); // Tạo file mới nếu chưa tồn tại
+                FileHelper.WriteToFile(_filePath, new List<Product>()); // Thêm dòng này để tạo file nếu chưa tồn tại
             }
         }
         // Lấy danh sách sản phẩm từ file
