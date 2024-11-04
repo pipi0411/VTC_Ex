@@ -25,9 +25,6 @@ namespace InventoryManager{
                     case "2":
                         OrderMenu(); // Go to Order menu
                         break;
-                    case "3":
-                        ReportMenu(); // Go to Report menu
-                        break;
                     case "0":
                         Console.WriteLine("Exiting...");
                         return;
@@ -43,7 +40,6 @@ namespace InventoryManager{
             Console.WriteLine("--- Inventory Management System ---");
             Console.WriteLine("1. Inventory");
             Console.WriteLine("2. Order");
-            Console.WriteLine("3. Report");
             Console.WriteLine("0. Exit");
             Console.Write("Choose an option: ");
         }
@@ -119,29 +115,6 @@ namespace InventoryManager{
             }
         }
 
-        private void ReportMenu()
-        {
-            while (true)
-            {
-                Console.WriteLine("--- Report Menu ---");
-                Console.WriteLine("1. Generate Inventory Report");
-                Console.WriteLine("0. Back to Main Menu");
-                Console.Write("Choose an option: ");
-                var choice = Console.ReadLine();
-
-                switch (choice)
-                {
-                    case "1":
-                        // GenerateInventoryReport(); // Placeholder for report generation logic
-                        break;
-                    case "0":
-                        return; // Back to Main Menu
-                    default:
-                        Console.WriteLine("Invalid choice. Try again.");
-                        break;
-                }
-            }
-        }
 
         // Thêm sản phẩm vào kho.
         private void AddProduct(){
