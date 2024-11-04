@@ -97,6 +97,7 @@ namespace InventoryManager{
             {
                 Console.WriteLine("--- Order Menu ---");
                 Console.WriteLine("1. Create Order");
+                Console.WriteLine("2. Display Orders");
                 Console.WriteLine("0. Back to Main Menu");
                 Console.Write("Choose an option: ");
                 var choice = Console.ReadLine();
@@ -105,6 +106,9 @@ namespace InventoryManager{
                 {
                     case "1":
                         CreateOrder();
+                        break;
+                    case "2":
+                        Order.DisplayOrder(); // Display orders
                         break;
                     case "0":
                         return; // Back to Main Menu

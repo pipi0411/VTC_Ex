@@ -7,9 +7,9 @@
 7,Keyboard,500000,15
 8,Monitor,3000000,5
 9,Printer,1500000,8
-10,USB Drive,150000,50
+10,USB Drive,150000,33
 11,Webcam,800000,12
-12,Headphones,600000,25
+12,Headphones,600000,20
 13,Smartphone,8000000,7
 14,Tablet,5000000,3
 15,Galasy,16000000,5
