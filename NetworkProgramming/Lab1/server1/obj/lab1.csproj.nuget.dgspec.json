@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\NetworkProgramming\\lab1\\lab1\\lab1.csproj": {}
+    "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\networkProgramming\\lab1\\server1\\lab1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\NetworkProgramming\\lab1\\lab1\\lab1.csproj": {
+    "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\networkProgramming\\lab1\\server1\\lab1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\NetworkProgramming\\lab1\\lab1\\lab1.csproj",
+        "projectUniqueName": "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\networkProgramming\\lab1\\server1\\lab1.csproj",
         "projectName": "lab1",
-        "projectPath": "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\NetworkProgramming\\lab1\\lab1\\lab1.csproj",
+        "projectPath": "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\networkProgramming\\lab1\\server1\\lab1.csproj",
         "packagesPath": "C:\\Users\\pipi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\NetworkProgramming\\lab1\\lab1\\obj\\",
+        "outputPath": "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\networkProgramming\\lab1\\server1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pipi\\AppData\\Roaming\\NuGet\\NuGet.Config"

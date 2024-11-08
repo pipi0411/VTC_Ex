@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "zi0xvshBqXU=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\pipi\\Documents\\c\\VTC_Ex\\networkProgramming\\lab2\\server2\\server2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\pipi\\.nuget\\packages\\bouncycastle.cryptography\\2.4.0\\bouncycastle.cryptography.2.4.0.nupkg.sha512",
+    "C:\\Users\\pipi\\.nuget\\packages\\mailkit\\4.8.0\\mailkit.4.8.0.nupkg.sha512",
+    "C:\\Users\\pipi\\.nuget\\packages\\mimekit\\4.8.0\\mimekit.4.8.0.nupkg.sha512",
+    "C:\\Users\\pipi\\.nuget\\packages\\system.formats.asn1\\8.0.1\\system.formats.asn1.8.0.1.nupkg.sha512",
+    "C:\\Users\\pipi\\.nuget\\packages\\system.security.cryptography.pkcs\\8.0.0\\system.security.cryptography.pkcs.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
