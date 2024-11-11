@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = project2
-build_property.ProjectDir = c:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\Lab2\project2\
+build_property.ProjectDir = C:\Users\pipi\Documents\c\VTC_Ex\ObjectOriented\Lab2\project2\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

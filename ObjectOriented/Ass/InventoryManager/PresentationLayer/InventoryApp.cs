@@ -74,7 +74,7 @@ namespace InventoryManager{
                         DisplayInventory();
                         break;
                     case "5":
-                        SearchProduct();
+                        SearchProducts();
                         break;
                     case "6":
                         CheckLowStock();
@@ -115,6 +115,33 @@ namespace InventoryManager{
             }
         }
 
+        private void SearchProducts(){
+            while(true){
+                Console.WriteLine("--- Search Product ---");
+                Console.WriteLine("1. Search by Product Name");
+                Console.WriteLine("2. Search by Price");
+                Console.WriteLine("3. Search by ID");
+                Console.WriteLine("0. Back to Inventory Menu");
+                Console.Write("Choose an option: ");
+                var choice = Console.ReadLine();
+                switch (choice){
+                    case "1":
+                        SearchProduct();
+                        break;
+                    case "2":
+                        SearchProductByPrice();
+                        break;
+                    case "3":
+                        SearchProductByID();
+                        break;
+                    case "0":
+                        return;
+                    default:
+                        Console.WriteLine("Invalid choice. Try again.");
+                        break;
+                }
+            }
+        }
 
         // Thêm sản phẩm vào kho.
         private void AddProduct(){
@@ -166,6 +193,33 @@ namespace InventoryManager{
                 foreach (var product in products){
                     product.Display();
                 }
+            }else {
+                Console.WriteLine("Product not found");
+            }
+        }
+
+        // Tìm kiếm sản phẩm theo giá.
+        private void SearchProductByPrice(){
+            Console.Write("Enter Price: ");
+            double price = double.Parse(Console.ReadLine()); // Đọc giá sản phẩm từ bàn phím.
+            var products = _inventory.SearchProductPrice(price); // Tìm kiếm sản phẩm theo giá.
+            // Hiển thị thông tin sản phẩm nếu tìm thấy.
+            if (products.Count > 0){
+                foreach (var product in products){
+                    product.Display();
+                }
+            }else {
+                Console.WriteLine("Product not found");
+            }
+        }
+        // Tìm sản phảm theo Id
+        private void SearchProductByID(){
+            Console.Write("Enter Product Id: ");
+            int productId = int.Parse(Console.ReadLine()); // Đọc mã sản phẩm từ bàn phím.
+            var product = _inventory.FindProduct(productId); // Tìm sản phẩm theo mã sản phẩm.
+            // Hiển thị thông tin sản phẩm nếu tìm thấy.
+            if (product != null){
+                product.Display();
             }else {
                 Console.WriteLine("Product not found");
             }

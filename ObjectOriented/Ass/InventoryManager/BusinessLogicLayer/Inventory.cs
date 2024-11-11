@@ -69,7 +69,11 @@ namespace InventoryManager{
         public List<Product> SearchProduct(string productName){
             return _inventoryRepository.GetAllProducts()
                 .FindAll(product => product.ProductName.IndexOf(productName, StringComparison.OrdinalIgnoreCase) >= 0);
-        
+        }
+        // Tìm sản phẩm theo giá
+        public List<Product> SearchProductPrice(double price){
+            return _inventoryRepository.GetAllProducts()
+                .FindAll(product => product.Price == price);
         }
         // Lấy danh sách sản phẩm có số lượng tồn kho thấp
         public List<Product> GetLowStockProducts(int threshold){
