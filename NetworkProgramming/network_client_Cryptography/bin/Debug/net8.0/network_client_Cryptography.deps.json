@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "network_client_Cryptography/1.0.0": {
+        "runtime": {
+          "network_client_Cryptography.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "network_client_Cryptography/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
