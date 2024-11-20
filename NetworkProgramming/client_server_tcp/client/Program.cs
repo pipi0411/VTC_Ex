@@ -9,7 +9,7 @@ class TCPClient
         try
         {
             // Địa chỉ IP và cổng của server
-            string serverIP = "10.10.20.149";
+            string serverIP = "127.0.0.1";
             int port = 12345;
 
             // Nội dung text gửi đến server

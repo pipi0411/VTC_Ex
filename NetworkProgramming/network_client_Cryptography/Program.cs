@@ -11,15 +11,15 @@ class Client
         try
         {
             TcpClient client = new TcpClient();
-            client.Connect(IPAddress.Parse("127.0.0.1"), 8888);
+            client.Connect(IPAddress.Parse("127.0.0.1"), 12345);
 
             NetworkStream stream = client.GetStream();
             using (DESCryptoServiceProvider des = new DESCryptoServiceProvider())
             {
-                byte[] key = Encoding.ASCII.GetBytes("123456789");
-                byte[] iv = Encoding.ASCII.GetBytes("123456789");
-                des.Key = key;
-                des.IV = iv;
+                // byte[] key = Encoding.ASCII.GetBytes("123456789");
+                // byte[] iv = Encoding.ASCII.GetBytes("123456789");
+                // des.Key = key;
+                // des.IV = iv;
 
                 while (true)
                 {

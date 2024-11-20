@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5CJJ4eEvASfKl/sgGepWIgBFm7jUCiPo81MLgiv16tE2UC3Lab1B2YDywM4NDatUvCGl98zl7FfgxuRP0gfVeA==",
+  "dgSpecHash": "oN+LI99S8Ts=",
   "success": true,
-  "projectFilePath": "/Users/mac/Documents/template_can_delete/network_server_client_Cryptography/network_client_Cryptography/network_client_Cryptography.csproj",
+  "projectFilePath": "C:\\Users\\Anh DU\\Documents\\GitHub\\VTC_Ex\\networkProgramming\\network_client_Cryptography\\network_client_Cryptography.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

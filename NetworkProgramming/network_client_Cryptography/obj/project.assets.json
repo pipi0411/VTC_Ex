@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "/Users/mac/.nuget/packages/": {}
+    "C:\\Users\\Anh DU\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/mac/Documents/template_can_delete/network_server_client_Cryptography/network_client_Cryptography/network_client_Cryptography.csproj",
+      "projectUniqueName": "C:\\Users\\Anh DU\\Documents\\GitHub\\VTC_Ex\\networkProgramming\\network_client_Cryptography\\network_client_Cryptography.csproj",
       "projectName": "network_client_Cryptography",
-      "projectPath": "/Users/mac/Documents/template_can_delete/network_server_client_Cryptography/network_client_Cryptography/network_client_Cryptography.csproj",
-      "packagesPath": "/Users/mac/.nuget/packages/",
-      "outputPath": "/Users/mac/Documents/template_can_delete/network_server_client_Cryptography/network_client_Cryptography/obj/",
+      "projectPath": "C:\\Users\\Anh DU\\Documents\\GitHub\\VTC_Ex\\networkProgramming\\network_client_Cryptography\\network_client_Cryptography.csproj",
+      "packagesPath": "C:\\Users\\Anh DU\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Anh DU\\Documents\\GitHub\\VTC_Ex\\networkProgramming\\network_client_Cryptography\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/mac/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Anh DU\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -38,6 +38,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -59,7 +64,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

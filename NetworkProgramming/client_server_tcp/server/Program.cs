@@ -11,7 +11,7 @@ class TCPServer
         try
         {
             // Địa chỉ IP và cổng của server
-            IPAddress ipAddress = IPAddress.Parse("10.10.20.148");
+            IPAddress ipAddress = IPAddress.Parse("127.0.0.1");
             int port = 12345;
 
             // Tạo đối tượng TcpListener

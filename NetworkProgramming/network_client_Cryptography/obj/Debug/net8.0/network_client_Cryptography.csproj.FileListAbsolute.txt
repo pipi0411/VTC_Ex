@@ -26,3 +26,18 @@
 /Users/mac/Documents/template_can_delete/network_server_client_Cryptography/network_client_Cryptography/obj/Debug/net8.0/network_client_Cryptography.pdb
 /Users/mac/Documents/template_can_delete/network_server_client_Cryptography/network_client_Cryptography/obj/Debug/net8.0/network_client_Cryptography.genruntimeconfig.cache
 /Users/mac/Documents/template_can_delete/network_server_client_Cryptography/network_client_Cryptography/obj/Debug/net8.0/ref/network_client_Cryptography.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\network_client_Cryptography\bin\Debug\net8.0\network_client_Cryptography.exe
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\network_client_Cryptography\bin\Debug\net8.0\network_client_Cryptography.deps.json
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\network_client_Cryptography\bin\Debug\net8.0\network_client_Cryptography.runtimeconfig.json
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\network_client_Cryptography\bin\Debug\net8.0\network_client_Cryptography.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\network_client_Cryptography\bin\Debug\net8.0\network_client_Cryptography.pdb
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\network_client_Cryptography\obj\Debug\net8.0\network_client_Cryptography.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\network_client_Cryptography\obj\Debug\net8.0\network_client_Cryptography.AssemblyInfoInputs.cache
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\network_client_Cryptography\obj\Debug\net8.0\network_client_Cryptography.AssemblyInfo.cs
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\network_client_Cryptography\obj\Debug\net8.0\network_client_Cryptography.csproj.CoreCompileInputs.cache
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\network_client_Cryptography\obj\Debug\net8.0\network_client_Cryptography.sourcelink.json
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\network_client_Cryptography\obj\Debug\net8.0\network_client_Cryptography.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\network_client_Cryptography\obj\Debug\net8.0\refint\network_client_Cryptography.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\network_client_Cryptography\obj\Debug\net8.0\network_client_Cryptography.pdb
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\network_client_Cryptography\obj\Debug\net8.0\network_client_Cryptography.genruntimeconfig.cache
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\network_client_Cryptography\obj\Debug\net8.0\ref\network_client_Cryptography.dll

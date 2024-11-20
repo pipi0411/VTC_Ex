@@ -26,3 +26,18 @@ C:\Users\pipi\Downloads\Compressed\client_server_tcp\server\obj\Debug\net8.0\ref
 C:\Users\pipi\Downloads\Compressed\client_server_tcp\server\obj\Debug\net8.0\server.pdb
 C:\Users\pipi\Downloads\Compressed\client_server_tcp\server\obj\Debug\net8.0\server.genruntimeconfig.cache
 C:\Users\pipi\Downloads\Compressed\client_server_tcp\server\obj\Debug\net8.0\ref\server.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\client_server_tcp\server\bin\Debug\net8.0\server.exe
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\client_server_tcp\server\bin\Debug\net8.0\server.deps.json
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\client_server_tcp\server\bin\Debug\net8.0\server.runtimeconfig.json
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\client_server_tcp\server\bin\Debug\net8.0\server.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\client_server_tcp\server\bin\Debug\net8.0\server.pdb
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\client_server_tcp\server\obj\Debug\net8.0\server.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\client_server_tcp\server\obj\Debug\net8.0\server.AssemblyInfoInputs.cache
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\client_server_tcp\server\obj\Debug\net8.0\server.AssemblyInfo.cs
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\client_server_tcp\server\obj\Debug\net8.0\server.csproj.CoreCompileInputs.cache
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\client_server_tcp\server\obj\Debug\net8.0\server.sourcelink.json
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\client_server_tcp\server\obj\Debug\net8.0\server.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\client_server_tcp\server\obj\Debug\net8.0\refint\server.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\client_server_tcp\server\obj\Debug\net8.0\server.pdb
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\client_server_tcp\server\obj\Debug\net8.0\server.genruntimeconfig.cache
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\client_server_tcp\server\obj\Debug\net8.0\ref\server.dll
