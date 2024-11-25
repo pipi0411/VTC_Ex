@@ -1,0 +1,45 @@
+D:\VTC_Ex\Ex2_02_0208\networkProgramming\ass\chat_ground\client\obj\Debug\net8.0\client.GeneratedMSBuildEditorConfig.editorconfig
+D:\VTC_Ex\Ex2_02_0208\networkProgramming\ass\chat_ground\client\obj\Debug\net8.0\client.AssemblyInfoInputs.cache
+D:\VTC_Ex\Ex2_02_0208\networkProgramming\ass\chat_ground\client\obj\Debug\net8.0\client.AssemblyInfo.cs
+D:\VTC_Ex\Ex2_02_0208\networkProgramming\ass\chat_ground\client\obj\Debug\net8.0\client.csproj.CoreCompileInputs.cache
+D:\VTC_Ex\Ex2_02_0208\networkProgramming\ass\chat_ground\client\obj\Debug\net8.0\client.sourcelink.json
+D:\VTC_Ex\Ex2_02_0208\networkProgramming\ass\chat_ground\client\bin\Debug\net8.0\client.exe
+D:\VTC_Ex\Ex2_02_0208\networkProgramming\ass\chat_ground\client\bin\Debug\net8.0\client.deps.json
+D:\VTC_Ex\Ex2_02_0208\networkProgramming\ass\chat_ground\client\bin\Debug\net8.0\client.runtimeconfig.json
+D:\VTC_Ex\Ex2_02_0208\networkProgramming\ass\chat_ground\client\bin\Debug\net8.0\client.dll
+D:\VTC_Ex\Ex2_02_0208\networkProgramming\ass\chat_ground\client\bin\Debug\net8.0\client.pdb
+D:\VTC_Ex\Ex2_02_0208\networkProgramming\ass\chat_ground\client\obj\Debug\net8.0\client.dll
+D:\VTC_Ex\Ex2_02_0208\networkProgramming\ass\chat_ground\client\obj\Debug\net8.0\refint\client.dll
+D:\VTC_Ex\Ex2_02_0208\networkProgramming\ass\chat_ground\client\obj\Debug\net8.0\client.pdb
+D:\VTC_Ex\Ex2_02_0208\networkProgramming\ass\chat_ground\client\obj\Debug\net8.0\client.genruntimeconfig.cache
+D:\VTC_Ex\Ex2_02_0208\networkProgramming\ass\chat_ground\client\obj\Debug\net8.0\ref\client.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_ground\client\bin\Debug\net8.0\client.exe
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_ground\client\bin\Debug\net8.0\client.deps.json
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_ground\client\bin\Debug\net8.0\client.runtimeconfig.json
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_ground\client\bin\Debug\net8.0\client.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_ground\client\bin\Debug\net8.0\client.pdb
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_ground\client\obj\Debug\net8.0\client.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_ground\client\obj\Debug\net8.0\client.AssemblyInfoInputs.cache
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_ground\client\obj\Debug\net8.0\client.AssemblyInfo.cs
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_ground\client\obj\Debug\net8.0\client.csproj.CoreCompileInputs.cache
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_ground\client\obj\Debug\net8.0\client.sourcelink.json
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_ground\client\obj\Debug\net8.0\client.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_ground\client\obj\Debug\net8.0\refint\client.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_ground\client\obj\Debug\net8.0\client.pdb
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_ground\client\obj\Debug\net8.0\client.genruntimeconfig.cache
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_ground\client\obj\Debug\net8.0\ref\client.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_group\client\bin\Debug\net8.0\client.exe
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_group\client\bin\Debug\net8.0\client.deps.json
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_group\client\bin\Debug\net8.0\client.runtimeconfig.json
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_group\client\bin\Debug\net8.0\client.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_group\client\bin\Debug\net8.0\client.pdb
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_group\client\obj\Debug\net8.0\client.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_group\client\obj\Debug\net8.0\client.AssemblyInfoInputs.cache
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_group\client\obj\Debug\net8.0\client.AssemblyInfo.cs
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_group\client\obj\Debug\net8.0\client.csproj.CoreCompileInputs.cache
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_group\client\obj\Debug\net8.0\client.sourcelink.json
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_group\client\obj\Debug\net8.0\client.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_group\client\obj\Debug\net8.0\refint\client.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_group\client\obj\Debug\net8.0\client.pdb
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_group\client\obj\Debug\net8.0\client.genruntimeconfig.cache
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_group\client\obj\Debug\net8.0\ref\client.dll
