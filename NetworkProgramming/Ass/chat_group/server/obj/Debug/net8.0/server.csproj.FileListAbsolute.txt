@@ -43,3 +43,18 @@ C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_group\server
 C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_group\server\obj\Debug\net8.0\server.pdb
 C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_group\server\obj\Debug\net8.0\server.genruntimeconfig.cache
 C:\Users\Anh DU\Documents\GitHub\VTC_Ex\networkProgramming\ass\chat_group\server\obj\Debug\net8.0\ref\server.dll
+D:\VTC_Ex\Ex2_02_0208\networkprogramming\ass\chat_group\server\bin\Debug\net8.0\server.exe
+D:\VTC_Ex\Ex2_02_0208\networkprogramming\ass\chat_group\server\bin\Debug\net8.0\server.deps.json
+D:\VTC_Ex\Ex2_02_0208\networkprogramming\ass\chat_group\server\bin\Debug\net8.0\server.runtimeconfig.json
+D:\VTC_Ex\Ex2_02_0208\networkprogramming\ass\chat_group\server\bin\Debug\net8.0\server.dll
+D:\VTC_Ex\Ex2_02_0208\networkprogramming\ass\chat_group\server\bin\Debug\net8.0\server.pdb
+D:\VTC_Ex\Ex2_02_0208\networkprogramming\ass\chat_group\server\obj\Debug\net8.0\server.GeneratedMSBuildEditorConfig.editorconfig
+D:\VTC_Ex\Ex2_02_0208\networkprogramming\ass\chat_group\server\obj\Debug\net8.0\server.AssemblyInfoInputs.cache
+D:\VTC_Ex\Ex2_02_0208\networkprogramming\ass\chat_group\server\obj\Debug\net8.0\server.AssemblyInfo.cs
+D:\VTC_Ex\Ex2_02_0208\networkprogramming\ass\chat_group\server\obj\Debug\net8.0\server.csproj.CoreCompileInputs.cache
+D:\VTC_Ex\Ex2_02_0208\networkprogramming\ass\chat_group\server\obj\Debug\net8.0\server.sourcelink.json
+D:\VTC_Ex\Ex2_02_0208\networkprogramming\ass\chat_group\server\obj\Debug\net8.0\server.dll
+D:\VTC_Ex\Ex2_02_0208\networkprogramming\ass\chat_group\server\obj\Debug\net8.0\refint\server.dll
+D:\VTC_Ex\Ex2_02_0208\networkprogramming\ass\chat_group\server\obj\Debug\net8.0\server.pdb
+D:\VTC_Ex\Ex2_02_0208\networkprogramming\ass\chat_group\server\obj\Debug\net8.0\server.genruntimeconfig.cache
+D:\VTC_Ex\Ex2_02_0208\networkprogramming\ass\chat_group\server\obj\Debug\net8.0\ref\server.dll

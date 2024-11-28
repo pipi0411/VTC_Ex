@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Anh DU\\Documents\\GitHub\\VTC_Ex\\networkProgramming\\ass\\chat_group\\server\\server.csproj": {}
+    "D:\\VTC_Ex\\Ex2_02_0208\\networkprogramming\\ass\\chat_group\\server\\server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Anh DU\\Documents\\GitHub\\VTC_Ex\\networkProgramming\\ass\\chat_group\\server\\server.csproj": {
+    "D:\\VTC_Ex\\Ex2_02_0208\\networkprogramming\\ass\\chat_group\\server\\server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Anh DU\\Documents\\GitHub\\VTC_Ex\\networkProgramming\\ass\\chat_group\\server\\server.csproj",
+        "projectUniqueName": "D:\\VTC_Ex\\Ex2_02_0208\\networkprogramming\\ass\\chat_group\\server\\server.csproj",
         "projectName": "server",
-        "projectPath": "C:\\Users\\Anh DU\\Documents\\GitHub\\VTC_Ex\\networkProgramming\\ass\\chat_group\\server\\server.csproj",
-        "packagesPath": "C:\\Users\\Anh DU\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Anh DU\\Documents\\GitHub\\VTC_Ex\\networkProgramming\\ass\\chat_group\\server\\obj\\",
+        "projectPath": "D:\\VTC_Ex\\Ex2_02_0208\\networkprogramming\\ass\\chat_group\\server\\server.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\VTC_Ex\\Ex2_02_0208\\networkprogramming\\ass\\chat_group\\server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Anh DU\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -58,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.402/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

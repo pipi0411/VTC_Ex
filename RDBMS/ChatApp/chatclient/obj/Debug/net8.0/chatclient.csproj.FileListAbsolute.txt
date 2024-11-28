@@ -1,0 +1,15 @@
+D:\VTC_Ex\Ex2_02_0208\rdbms\chatapp\chatclient\bin\Debug\net8.0\chatclient.exe
+D:\VTC_Ex\Ex2_02_0208\rdbms\chatapp\chatclient\bin\Debug\net8.0\chatclient.deps.json
+D:\VTC_Ex\Ex2_02_0208\rdbms\chatapp\chatclient\bin\Debug\net8.0\chatclient.runtimeconfig.json
+D:\VTC_Ex\Ex2_02_0208\rdbms\chatapp\chatclient\bin\Debug\net8.0\chatclient.dll
+D:\VTC_Ex\Ex2_02_0208\rdbms\chatapp\chatclient\bin\Debug\net8.0\chatclient.pdb
+D:\VTC_Ex\Ex2_02_0208\rdbms\chatapp\chatclient\obj\Debug\net8.0\chatclient.GeneratedMSBuildEditorConfig.editorconfig
+D:\VTC_Ex\Ex2_02_0208\rdbms\chatapp\chatclient\obj\Debug\net8.0\chatclient.AssemblyInfoInputs.cache
+D:\VTC_Ex\Ex2_02_0208\rdbms\chatapp\chatclient\obj\Debug\net8.0\chatclient.AssemblyInfo.cs
+D:\VTC_Ex\Ex2_02_0208\rdbms\chatapp\chatclient\obj\Debug\net8.0\chatclient.csproj.CoreCompileInputs.cache
+D:\VTC_Ex\Ex2_02_0208\rdbms\chatapp\chatclient\obj\Debug\net8.0\chatclient.sourcelink.json
+D:\VTC_Ex\Ex2_02_0208\rdbms\chatapp\chatclient\obj\Debug\net8.0\chatclient.dll
+D:\VTC_Ex\Ex2_02_0208\rdbms\chatapp\chatclient\obj\Debug\net8.0\refint\chatclient.dll
+D:\VTC_Ex\Ex2_02_0208\rdbms\chatapp\chatclient\obj\Debug\net8.0\chatclient.pdb
+D:\VTC_Ex\Ex2_02_0208\rdbms\chatapp\chatclient\obj\Debug\net8.0\chatclient.genruntimeconfig.cache
+D:\VTC_Ex\Ex2_02_0208\rdbms\chatapp\chatclient\obj\Debug\net8.0\ref\chatclient.dll
