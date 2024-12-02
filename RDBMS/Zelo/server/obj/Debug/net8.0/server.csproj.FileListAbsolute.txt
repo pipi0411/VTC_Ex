@@ -41,3 +41,46 @@ D:\VTC_Ex\Ex2_02_0208\rdbms\zelo\server\obj\Debug\net8.0\refint\server.dll
 D:\VTC_Ex\Ex2_02_0208\rdbms\zelo\server\obj\Debug\net8.0\server.pdb
 D:\VTC_Ex\Ex2_02_0208\rdbms\zelo\server\obj\Debug\net8.0\server.genruntimeconfig.cache
 D:\VTC_Ex\Ex2_02_0208\rdbms\zelo\server\obj\Debug\net8.0\ref\server.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\obj\Debug\net8.0\server.csproj.AssemblyReference.cache
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\obj\Debug\net8.0\server.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\obj\Debug\net8.0\server.AssemblyInfoInputs.cache
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\obj\Debug\net8.0\server.AssemblyInfo.cs
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\obj\Debug\net8.0\server.csproj.CoreCompileInputs.cache
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\obj\Debug\net8.0\server.sourcelink.json
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\server.exe
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\server.deps.json
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\server.runtimeconfig.json
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\server.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\server.pdb
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\AWSSDK.Core.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\AWSSDK.S3.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\BCrypt.Net-Next.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\Google.Protobuf.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\JWT.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\K4os.Compression.LZ4.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\K4os.Compression.LZ4.Streams.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\K4os.Hash.xxHash.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\MySql.Data.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\System.Diagnostics.EventLog.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\System.IO.Pipelines.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\System.Security.Permissions.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\System.Windows.Extensions.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\ZstdSharp.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\runtimes\win-x64\native\comerr64.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\runtimes\win-x64\native\gssapi64.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\runtimes\win-x64\native\krb5_64.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\runtimes\win-x64\native\krbcc64.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.Messages.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Windows.Extensions.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\obj\Debug\net8.0\server.csproj.Up2Date
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\obj\Debug\net8.0\server.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\obj\Debug\net8.0\refint\server.dll
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\obj\Debug\net8.0\server.pdb
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\obj\Debug\net8.0\server.genruntimeconfig.cache
+C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\server\obj\Debug\net8.0\ref\server.dll

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -15,13 +14,15 @@ class Server
 {
     static string connectionString = "server=127.0.0.1;uid=root;password=Duyanh0612;database=zelo";
     static ConcurrentDictionary<string, int> activeUsers = new ConcurrentDictionary<string, int>(); // Thread-safe storage for online users
-    static HMACSHA256Algorithm algorithm = new HMACSHA256Algorithm(); 
+
+    // Thành phần cần thiết
     static IJsonSerializer serializer = new JsonNetSerializer();
-    static IDateTimeProvider provider = new UtcDateTimeProvider(); 
+    static IBase64UrlEncoder urlEncoder = new JwtBase64UrlEncoder(); // Base64 URL Encoder
+    static IDateTimeProvider provider = new UtcDateTimeProvider();
+    static HMACSHA256Algorithm algorithm = new HMACSHA256Algorithm(); // Thuật toán mã hóa
     static IJwtValidator validator = new JwtValidator(serializer, provider);
-    static IBase64UrlEncoder urlEncoder = new JwtBase64UrlEncoder(); 
-    static IJwtEncoder encoder = new JwtEncoder(algorithm, serializer, urlEncoder);
-    static IJwtDecoder decoder = new JwtDecoder(serializer, urlEncoder);
+    static IJwtEncoder encoder = new JwtEncoder(algorithm, serializer, urlEncoder); // Sửa ở đây
+    static IJwtDecoder decoder = new JwtDecoder(serializer, validator, urlEncoder, algorithm); // Sửa ở đây
 
     static void Main()
     {
@@ -40,11 +41,10 @@ class Server
     static void HandleClient(TcpClient client)
     {
         NetworkStream stream = client.GetStream();
-        byte[] buffer = new byte[1024];
-        int bytesRead = stream.Read(buffer, 0, buffer.Length);
-        string request = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-        Console.WriteLine($"Request from client: {request}");
+        StreamReader reader = new StreamReader(stream, Encoding.UTF8);
+        StreamWriter writer = new StreamWriter(stream, Encoding.UTF8) { AutoFlush = true };
 
+        string request = reader.ReadLine();
         string[] parts = request.Split("|");
         if (parts.Length < 3)
         {
@@ -82,21 +82,23 @@ class Server
         }
         else if (request.StartsWith("SEND_MESSAGE"))
         {
-            if (parts.Length < 5)
+            if (parts.Length < 4)
             {
                 SendResponse(stream, "SEND MESSAGE FAIL! Missing parameters.");
                 client.Close();
                 return;
             }
 
-            string sender = parts[1];
-            string receiver = parts[2];
-            string message = parts[3];
-            string token = parts[4];
+            string receiver = parts[1];
+            string message = parts[2];
+            string token = parts[3];
 
-            if (ValidateToken(token, out string validateUsername))
+            try
             {
-                if (activeUsers.ContainsKey(validateUsername))
+                var payload = decoder.DecodeToObject<IDictionary<string, object>>(token, "Duyanh0612", verify: true);
+                string sender = payload["sub"].ToString();
+
+                if (activeUsers.ContainsKey(sender))
                 {
                     if (ValidateUserExists(receiver))
                     {
@@ -121,8 +123,9 @@ class Server
                     SendResponse(stream, "SEND MESSAGE FAIL! Sender is not online.");
                 }
             }
-            else
+            catch (Exception ex)
             {
+                Console.WriteLine($"Error validating token: {ex.Message}");
                 SendResponse(stream, "SEND MESSAGE FAIL! Invalid token.");
             }
         }
@@ -132,6 +135,18 @@ class Server
         }
         client.Close();
     }
+
+    static string GenerateToken(string username)
+    {
+        var payload = new
+        {
+            sub = username,
+            exp = DateTimeOffset.UtcNow.AddHours(1).ToUnixTimeSeconds() // Set expiration to 1 hour from now
+        };
+
+        return encoder.Encode(payload, "Duyanh0612");
+    }
+
 
     static bool RegisterUser(string username, string password)
     {
@@ -167,10 +182,11 @@ class Server
             using (var cmd = new MySqlCommand(sql, conn))
             {
                 cmd.Parameters.AddWithValue("@username", username);
-                var storedPassword = cmd.ExecuteScalar()?.ToString();
+                string storedPassword = cmd.ExecuteScalar() as string;
+
                 if (storedPassword != null && BCrypt.Net.BCrypt.Verify(password, storedPassword))
                 {
-                    token = GenerateJWT(username);
+                    token = GenerateToken(username);
                     return true;
                 }
                 else
@@ -182,28 +198,32 @@ class Server
         }
     }
 
-    static string GenerateJWT(string username)
-    {
-        var payload = new Dictionary<string, object>
-        {
-            { "username", username },
-            { "exp", DateTime.UtcNow.AddHours(1).ToString() }
-        };
-        return encoder.Encode(payload, "Duyanh0612");
-    }
-
     static bool ValidateToken(string token, out string username)
     {
         try
         {
             var payload = decoder.DecodeToObject<Dictionary<string, object>>(token, "Duyanh0612", verify: true);
+            Console.WriteLine($"Decoded payload: {string.Join(", ", payload.Select(kvp => $"{kvp.Key}: {kvp.Value}"))}");
+
             username = payload["username"].ToString();
-            return DateTime.Parse(payload["exp"].ToString()) > DateTime.UtcNow;
+            DateTime expTime = DateTime.Parse(payload["exp"].ToString());
+            Console.WriteLine($"Token expires at: {expTime}");
+
+            if (expTime > DateTime.UtcNow)
+            {
+                return true; // Token hợp lệ
+            }
+            else
+            {
+                Console.WriteLine("Token has expired.");
+                return false; // Token hết hạn
+            }
         }
-        catch
+        catch (Exception ex)
         {
+            Console.WriteLine($"Error validating token: {ex.Message}");
             username = null;
-            return false;
+            return false; // Token không hợp lệ
         }
     }
 
@@ -212,8 +232,8 @@ class Server
         using (var conn = new MySqlConnection(connectionString))
         {
             conn.Open();
-            string senderIdQuery = "SELECT id FROM users WHERE username = @sender";
-            string receiverIdQuery = "SELECT id FROM users WHERE username = @receiver";
+            string senderIdQuery = "SELECT userId FROM users WHERE username = @sender";
+            string receiverIdQuery = "SELECT userId FROM users WHERE username = @receiver";
 
             int? senderId = null;
             int? receiverId = null;
@@ -271,7 +291,7 @@ class Server
         using (var conn = new MySqlConnection(connectionString))
         {
             conn.Open();
-            string sql = "SELECT id FROM users WHERE username = @username";
+            string sql = "SELECT userId FROM users WHERE username = @username";
             using (var cmd = new MySqlCommand(sql, conn))
             {
                 cmd.Parameters.AddWithValue("@username", username);

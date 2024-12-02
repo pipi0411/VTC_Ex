@@ -62,8 +62,7 @@ class Client
         Console.Write("Enter password: ");
         string password = Console.ReadLine();
 
-        string request = $"REGISTER|{username}|{password}";
-        string response = SendRequest(request);
+        string response = SendRequest($"REGISTER|{username}|{password}");
         Console.WriteLine(response);
     }
 
@@ -74,16 +73,15 @@ class Client
         Console.Write("Enter password: ");
         string password = Console.ReadLine();
 
-        string request = $"LOGIN|{username}|{password}";
-        string response = SendRequest(request);
+        string response = SendRequest($"LOGIN|{username}|{password}");
         if (response != null && response.StartsWith("LOGIN SUCCESS!"))
         {
-            token = response.Split("|")[1];
-            Console.WriteLine("Login success!");
+            token = response.Split('|')[1];
+            Console.WriteLine("Login successful!");
         }
         else
         {
-            Console.WriteLine(response);
+            Console.WriteLine("Login failed! Invalid username or password.");
         }
     }
 
@@ -119,14 +117,11 @@ class Client
         {
             using (TcpClient client = new TcpClient(serverAddress, port))
             using (NetworkStream stream = client.GetStream())
+            using (StreamWriter writer = new StreamWriter(stream, Encoding.UTF8) { AutoFlush = true })
+            using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
             {
-                byte[] data = Encoding.UTF8.GetBytes(request);
-                stream.Write(data, 0, data.Length);
-
-                byte[] buffer = new byte[1024];
-                int bytesRead = stream.Read(buffer, 0, buffer.Length);
-                string response = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                return response;
+                writer.WriteLine(request);
+                return reader.ReadLine();
             }
         }
         catch (Exception ex)
