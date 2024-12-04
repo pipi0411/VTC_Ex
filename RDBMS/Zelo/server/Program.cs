@@ -129,6 +129,62 @@ class Server
                 SendResponse(stream, "SEND MESSAGE FAIL! Invalid token.");
             }
         }
+        else if (request.StartsWith("VIEW_HISTORY"))
+        {
+            if (parts.Length < 3)
+            {
+                SendResponse(stream, "VIEW HISTORY FAIL! Missing parameters.");
+                client.Close();
+                return;
+            }
+
+            string receiver = parts[1];
+            string token = parts[2];
+
+            try{
+                var payload = decoder.DecodeToObject<IDictionary<string, object>>(token, "Duyanh0612", verify: true);
+                string sender = payload["sub"].ToString();
+
+                if (activeUsers.ContainsKey(sender))
+                {
+                    if (ValidateUserExists(receiver))
+                    {
+                        try{
+                            var messages = GetMessageHistory(sender, receiver);
+                            if (messages.Count > 0)
+                            {
+                                string response = string.Join("\n", messages);
+                                Console.WriteLine($"Retrieved message history:\n{response}");
+                                SendResponse(stream, $"MESSAGE HISTORY:\n{response}");
+                            }
+                            else
+                            {
+                                Console.WriteLine("No messages found.");
+                                SendResponse(stream, "VIEW HISTORY FAIL! No messages found.");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Error while retrieving message history: {ex.Message}");
+                            SendResponse(stream, "VIEW HISTORY FAIL! Server error.");
+                        }
+                    }
+                    else
+                    {
+                        SendResponse(stream, "VIEW HISTORY FAIL! Receiver does not exist.");
+                    }
+                }
+                else
+                {
+                    SendResponse(stream, "VIEW HISTORY FAIL! Sender is not online.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error validating token: {ex.Message}");
+                SendResponse(stream, "VIEW HISTORY FAIL! Invalid token.");
+            }
+        }
         else
         {
             SendResponse(stream, "INVALID REQUEST!");
@@ -296,6 +352,40 @@ class Server
             {
                 cmd.Parameters.AddWithValue("@username", username);
                 return Convert.ToInt32(cmd.ExecuteScalar());
+            }
+        }
+    }
+
+    static List<string> GetMessageHistory(string sender, string receiver)
+    {
+        using (var conn = new MySqlConnection(connectionString))
+        {
+            conn.Open();
+            string sql = @"
+            SELECT u1.username AS sender, u2.username AS receiver, m.message, m.sent_at AS timestamp
+            FROM messages m
+            JOIN users u1 ON m.sender_id = u1.userId
+            JOIN users u2 ON m.receiver_id = u2.userId
+            WHERE 
+                (u1.username = @sender AND u2.username = @receiver) OR
+                (u1.username = @receiver AND u2.username = @sender)
+            ORDER BY m.sent_at";
+
+            using (var cmd = new MySqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@sender", sender);
+                cmd.Parameters.AddWithValue("@receiver", receiver);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    List<string> messages = new List<string>();
+                    while (reader.Read())
+                    {
+                        string message = $"{reader["timestamp"]}: {reader["sender"]} -> {reader["receiver"]}: {reader["message"]}";
+                        messages.Add(message);
+                    }
+                    return messages;
+                }
             }
         }
     }

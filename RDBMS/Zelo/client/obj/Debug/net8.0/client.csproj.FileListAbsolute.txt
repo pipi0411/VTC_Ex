@@ -32,3 +32,7 @@ C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\client\bin\Debug\net8.0\JWT.d
 C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\client\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\client\obj\Debug\net8.0\client.csproj.AssemblyReference.cache
 C:\Users\Anh DU\Documents\GitHub\VTC_Ex\rdbms\zelo\client\obj\Debug\net8.0\client.csproj.Up2Date
+D:\VTC_Ex\Ex2_02_0208\rdbms\zelo\client\bin\Debug\net8.0\JWT.dll
+D:\VTC_Ex\Ex2_02_0208\rdbms\zelo\client\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\VTC_Ex\Ex2_02_0208\rdbms\zelo\client\obj\Debug\net8.0\client.csproj.AssemblyReference.cache
+D:\VTC_Ex\Ex2_02_0208\rdbms\zelo\client\obj\Debug\net8.0\client.csproj.Up2Date

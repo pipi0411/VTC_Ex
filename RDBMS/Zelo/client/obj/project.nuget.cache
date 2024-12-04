@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "R5DxGxKiBxU=",
+  "dgSpecHash": "Uhe37RtLjdU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Anh DU\\Documents\\GitHub\\VTC_Ex\\rdbms\\zelo\\client\\client.csproj",
+  "projectFilePath": "D:\\VTC_Ex\\Ex2_02_0208\\rdbms\\zelo\\client\\client.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Anh DU\\.nuget\\packages\\jwt\\10.1.1\\jwt.10.1.1.nupkg.sha512",
-    "C:\\Users\\Anh DU\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
-    "C:\\Users\\Anh DU\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
-    "C:\\Users\\Anh DU\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
-    "C:\\Users\\Anh DU\\.nuget\\packages\\system.text.json\\6.0.7\\system.text.json.6.0.7.nupkg.sha512"
+    "C:\\Users\\Admin\\.nuget\\packages\\jwt\\10.1.1\\jwt.10.1.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\system.text.json\\6.0.7\\system.text.json.6.0.7.nupkg.sha512"
   ],
   "logs": []
 }
