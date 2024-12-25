@@ -23,7 +23,8 @@ class Client
             {
                 Console.WriteLine("3. Send message");
                 Console.WriteLine("4. Send file");
-                Console.WriteLine("5. Logout");
+                Console.WriteLine("5. View message history"); 
+                Console.WriteLine("6. Logout");
             }
 
             string choice = Console.ReadLine();
@@ -44,6 +45,10 @@ class Client
                     else Console.WriteLine("Please login first!");
                     break;
                 case "5":
+                    if (token != null) ViewMessageHistory();
+                    else Console.WriteLine("Please login first!");
+                    break;
+                case "6":
                     isRunning = false;
                     break;
                 default:
@@ -111,6 +116,33 @@ class Client
         Console.WriteLine(response);
     }
 
+    static void ViewMessageHistory()
+    {
+        Console.Write("Enter receiver: ");
+        string receiver = Console.ReadLine();
+
+        string request = $"VIEW_HISTORY|{receiver}|{token}";
+        string response = SendRequest(request);
+        if (!string.IsNullOrEmpty(response) && response.StartsWith("MESSAGE HISTORY:"))
+        {
+        Console.WriteLine("Message History:");
+        string messages = response.Substring("MESSAGE HISTORY:".Length).Trim();
+        if (!string.IsNullOrWhiteSpace(messages))
+        {
+            Console.WriteLine(messages); // In toàn bộ lịch sử tin nhắn
+        }
+        else
+        {
+            Console.WriteLine("No messages found.");
+        }
+        }
+        else
+        {
+            Console.WriteLine("Failed to retrieve message history.");
+            Console.WriteLine(response);
+        }
+    }
+
     static string SendRequest(string request)
     {
         try
@@ -121,7 +153,13 @@ class Client
             using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
             {
                 writer.WriteLine(request);
-                return reader.ReadLine();
+                StringBuilder response = new StringBuilder();
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    response.AppendLine(line);
+                }
+                return response.ToString().Trim();
             }
         }
         catch (Exception ex)
